@@ -33,12 +33,10 @@
             border-radius: 12px;
         }
         
-        /* 1. LOGO FIX: Ensures the logo sits above the sticky controls */
+        /* Logo Styling - Works correctly when controls are NOT sticky */
         .logo-container {
             text-align: center;
             margin-bottom: 10px;
-            position: relative; 
-            z-index: 11;       /* Higher than sticky controls (z-index 10) */
         }
         .logo {
             max-width: 120px;
@@ -64,31 +62,14 @@
             font-weight: 300;
         }
         
-        /* 2. STICKY CONTROLS FIX: Added background and proper padding for sticky behavior */
+        /* 3. MODERN CONTROLS (NOT sticky) */
         .controls {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 25px;
             gap: 15px;
-
-            /* STICKY HEADER STYLES */
-            position: sticky;
-            top: 0;
-            z-index: 10;
-            /* FIX: Add background to prevent content bleed-through */
-            background-color: var(--background-light); 
-            
-            /* Overlap container padding for full width stickiness */
-            margin-top: -20px; 
-            margin-left: -30px; 
-            margin-right: -30px; 
-            padding-left: 30px;
-            padding-right: 30px;
-            padding-top: 20px;
-            padding-bottom: 15px;
         }
-
         .controls input, .controls select {
             padding: 12px 15px;
             border: 1px solid #ddd;
@@ -110,7 +91,7 @@
             cursor: pointer;
         }
         
-        /* 3. STYLISH TABLE */
+        /* 4. STYLISH TABLE */
         table {
             width: 100%;
             border-collapse: separate;
@@ -132,30 +113,7 @@
             text-transform: uppercase;
             letter-spacing: 0.5px;
             border-bottom: 3px solid #1e3a5f;
-            cursor: pointer; /* Indicates sortable column */
-            user-select: none;
-            position: relative;
         }
-
-        /* Sorting Icons */
-        .sort-icon {
-            margin-left: 5px;
-            display: inline-block;
-            width: 0;
-            height: 0;
-            vertical-align: middle;
-        }
-        .asc .sort-icon {
-            border-left: 5px solid transparent;
-            border-right: 5px solid transparent;
-            border-bottom: 5px solid white; /* Up arrow */
-        }
-        .desc .sort-icon {
-            border-left: 5px solid transparent;
-            border-right: 5px solid transparent;
-            border-top: 5px solid white; /* Down arrow */
-        }
-
         /* Table Body Rows */
         tr:nth-child(even) {
             background-color: #f4f6f8;
@@ -173,17 +131,9 @@
             color: #555;
         }
         
-        /* 4. SEARCH HIGHLIGHTING */
-        .highlight {
-            background-color: #fffd82; /* Bright yellow/light gold */
-            font-weight: bold;
-            padding: 2px 0;
-            border-radius: 2px;
-        }
-
         /* 5. COURSE LEVEL COLOR CLASSES (Dynamic Highlighting) */
         .level-phd {
-            color: #C0392B; 
+            color: #C0392B; /* Dark Red */
             font-weight: 700;
             background-color: #fcecec;
             border-radius: 4px;
@@ -191,7 +141,7 @@
             display: inline-block;
         }
         .level-masters {
-            color: #F39C12; 
+            color: #F39C12; /* Gold/Orange */
             font-weight: 700;
             background-color: #fdf5e6;
             border-radius: 4px;
@@ -199,7 +149,7 @@
             display: inline-block;
         }
         .level-diploma {
-            color: #3498db; 
+            color: #3498db; /* Teal/Blue */
             font-weight: 700;
             background-color: #eaf3fb;
             border-radius: 4px;
@@ -207,7 +157,7 @@
             display: inline-block;
         }
         .level-bachelors {
-            color: #27AE60; 
+            color: #27AE60; /* Forest Green */
             font-weight: 700;
             background-color: #eaf7ee;
             border-radius: 4px;
@@ -215,7 +165,7 @@
             display: inline-block;
         }
         .level-certificate {
-            color: #9B59B6; 
+            color: #9B59B6; /* Purple */
             font-weight: 700;
             background-color: #f7ebfb;
             border-radius: 4px;
@@ -231,10 +181,6 @@
             }
             .controls {
                 flex-direction: column;
-                margin-left: -15px; 
-                margin-right: -15px; 
-                padding-left: 15px;
-                padding-right: 15px;
             }
             .controls input, .controls select {
                 width: 100%;
@@ -301,9 +247,9 @@
         <table id="enrollmentTable">
             <thead>
                 <tr>
-                    <th onclick="sortColumn(0)" data-column="no">NO. <span class="sort-icon"></span></th>
-                    <th onclick="sortColumn(1)" data-column="name">Name <span class="sort-icon"></span></th>
-                    <th onclick="sortColumn(2)" data-column="course">Course/Level <span class="sort-icon"></span></th>
+                    <th>NO.</th>
+                    <th>Name</th>
+                    <th>Course/Level</th>
                 </tr>
             </thead>
             <tbody>
@@ -312,7 +258,6 @@
     </div>
 
     <script>
-        // Data Array - Same as before
         const enrollmentData = [
             { no: 1, name: 'KOCHARA PETER LOTIANG', course: 'DIP-BIBLE & THEOLOGY' },
             { no: 2, name: 'BOAZ ASICHE MUTEKWA', course: 'DIP-BIBLE & THEOLOGY' },
@@ -518,15 +463,6 @@
         ];
 
         const tableBody = document.querySelector('#enrollmentTable tbody');
-        let currentSortColumn = null;
-        let currentSortDirection = 'asc'; // 'asc' or 'desc'
-
-        // Helper function to create HTML with highlighting
-        function highlightText(text, search) {
-            if (!search) return text;
-            const re = new RegExp(`(${search})`, 'gi');
-            return text.replace(re, '<span class="highlight">$1</span>');
-        }
 
         // Helper function to get the CSS class based on course name
         function getLevelClass(courseName) {
@@ -536,74 +472,29 @@
             if (course.includes('DIP') || course.includes('DIPLOMA')) return 'level-diploma';
             if (course.includes('BA') || course.includes('DEGREE')) return 'level-bachelors';
             if (course.includes('CT')) return 'level-certificate';
-            return ''; 
+            return ''; // Default class
         }
 
-        // Function to render the table (with highlighting)
-        function renderTable(data, searchInput = '') {
+        // Function to render the table 
+        function renderTable(data) {
             tableBody.innerHTML = ''; 
-            const searchLower = searchInput.toLowerCase();
-
             data.forEach(student => {
                 const row = tableBody.insertRow();
                 const levelClass = getLevelClass(student.course);
                 
-                // 1. NO. Cell
                 let cellNo = row.insertCell();
-                cellNo.innerHTML = highlightText(String(student.no), searchLower);
+                cellNo.textContent = student.no;
                 cellNo.setAttribute('data-label', 'NO.');
 
-                // 2. Name Cell
                 let cellName = row.insertCell();
-                cellName.innerHTML = highlightText(student.name, searchLower);
+                cellName.textContent = student.name;
                 cellName.setAttribute('data-label', 'Name');
 
-                // 3. Course/Level Cell
+                // Apply dynamic color class to the Course/Level cell
                 let cellCourse = row.insertCell();
-                const courseText = highlightText(student.course, searchLower);
-                cellCourse.innerHTML = `<span class="${levelClass}">${courseText}</span>`;
+                cellCourse.innerHTML = `<span class="${levelClass}">${student.course}</span>`;
                 cellCourse.setAttribute('data-label', 'Course/Level');
             });
-        }
-
-        // Function to handle Search and Filter logic
-        function filterTable() {
-            const searchInput = document.getElementById('searchInput').value.trim();
-            const courseFilterValue = document.getElementById('courseFilter').value;
-
-            let filteredData = enrollmentData.filter(student => {
-                // 1. Check Course Filter
-                const courseMatch = courseFilterValue === "" || student.course === courseFilterValue;
-
-                // 2. Check Search Input
-                const searchMatch = searchInput === "" || 
-                    student.name.toLowerCase().includes(searchInput.toLowerCase()) ||
-                    student.course.toLowerCase().includes(searchInput.toLowerCase());
-
-                return courseMatch && searchMatch;
-            });
-            
-            // Re-apply sorting to the newly filtered data
-            if (currentSortColumn !== null) {
-                const columnIndex = currentSortColumn;
-                const columnName = document.querySelectorAll('#enrollmentTable thead th')[columnIndex].getAttribute('data-column');
-                
-                filteredData.sort((a, b) => {
-                    const aValue = a[columnName];
-                    const bValue = b[columnName];
-                    let comparison = 0;
-
-                    if (typeof aValue === 'number') {
-                        comparison = aValue - bValue;
-                    } else {
-                        comparison = aValue.localeCompare(bValue);
-                    }
-
-                    return currentSortDirection === 'asc' ? comparison : comparison * -1;
-                });
-            }
-
-            renderTable(filteredData, searchInput);
         }
 
         // Function to populate the Course Filter dropdown
@@ -618,42 +509,31 @@
                 filterDropdown.appendChild(option);
             });
         }
-        
-        // Function to handle column sorting
-        function sortColumn(columnIndex) {
-            const headers = document.querySelectorAll('#enrollmentTable thead th');
-            const columnName = headers[columnIndex].getAttribute('data-column');
 
-            // Determine sort direction
-            if (currentSortColumn === columnIndex) {
-                currentSortDirection = currentSortDirection === 'asc' ? 'desc' : 'asc';
-            } else {
-                // Reset direction if a new column is clicked
-                currentSortDirection = 'asc';
-                currentSortColumn = columnIndex;
-            }
+        // Function to handle Search and Filter logic
+        function filterTable() {
+            const searchInput = document.getElementById('searchInput').value.toLowerCase();
+            const courseFilterValue = document.getElementById('courseFilter').value;
 
-            // Remove previous sort classes and icons
-            headers.forEach(th => {
-                th.classList.remove('asc', 'desc');
+            const filteredData = enrollmentData.filter(student => {
+                // 1. Check Course Filter
+                const courseMatch = courseFilterValue === "" || student.course === courseFilterValue;
+
+                // 2. Check Search Input
+                const searchMatch = 
+                    student.name.toLowerCase().includes(searchInput) ||
+                    student.course.toLowerCase().includes(searchInput);
+
+                return courseMatch && searchMatch;
             });
 
-            // Add current sort class and icon
-            headers[columnIndex].classList.add(currentSortDirection);
-
-            // Re-filter and re-render the table with the new sort order
-            filterTable();
+            renderTable(filteredData);
         }
-
 
         // Initialize the table and filter when the page loads
         document.addEventListener('DOMContentLoaded', () => {
-            // Initial render without sorting or filtering
             renderTable(enrollmentData);
             populateCourseFilter();
-            
-            // Set initial sort state (e.g., sort by NO. ascending)
-            sortColumn(0); 
         });
     </script>
 
