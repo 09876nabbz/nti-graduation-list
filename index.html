@@ -5,94 +5,106 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NORTH WESTERN CHRISTIAN TRAINING INSTITUTE - Enrollment List (201 Graduates)</title>
     <style>
+        /* New Vibrant Styles */
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Verdana', sans-serif; /* Changed Font */
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-color: #f3e5f5; /* Light Lavender Background */
         }
         .container {
             width: 90%;
             max-width: 1200px;
             margin: 20px auto;
-            background-color: #fff;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
+            background-color: #ffffff;
+            padding: 25px;
+            box-shadow: 0 10px 20px rgba(74, 20, 140, 0.2); /* Deep Purple Shadow */
+            border-radius: 12px;
+            border: 2px solid #9c27b0; /* Vibrant Purple Border */
         }
-        /* New Logo Styling */
+        /* Logo Styling */
         .logo-container {
             text-align: center;
             margin-bottom: 10px;
         }
         .logo {
-            max-width: 120px; /* Controls the size of the logo */
+            max-width: 120px; 
             height: auto;
             display: block;
             margin: 0 auto;
         }
-        /* End Logo Styling */
         
         h1 {
             text-align: center;
-            color: #2c3e50;
+            color: #4a148c; /* Dark Purple */
             margin-bottom: 5px;
-            border-bottom: 3px solid #3498db;
-            padding-bottom: 10px;
+            border-bottom: 4px solid #ce93d8; /* Light Purple Separator */
+            padding-bottom: 15px;
+            font-size: 2.5em;
         }
         h2 {
             text-align: center;
-            color: #7f8c8d;
-            font-size: 1.2em;
+            color: #8e24aa; /* Medium Purple */
+            font-size: 1.4em;
             margin-top: 0;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
         }
         .controls {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 20px;
-            gap: 10px;
+            margin-bottom: 25px;
+            gap: 15px;
         }
         .controls input, .controls select {
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
+            padding: 12px;
+            border: 2px solid #ce93d8;
+            border-radius: 8px;
             font-size: 16px;
+            background-color: #f7f3f9;
+            transition: border-color 0.3s;
+        }
+        .controls input:focus, .controls select:focus {
+             border-color: #4a148c;
         }
         .controls input {
             flex-grow: 1;
         }
         .controls select {
-            width: 200px; 
+            width: 250px; 
         }
         table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 20px;
+            margin-top: 25px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
         th, td {
-            border: 1px solid #ddd;
-            padding: 12px 15px;
+            border: 1px solid #e1bee7; /* Very Light Purple Border */
+            padding: 14px 18px;
             text-align: left;
         }
         th {
-            background-color: #3498db;
+            background-color: #4a148c; /* Table Header Dark Purple */
             color: white;
             font-weight: bold;
             text-transform: uppercase;
+            letter-spacing: 1px;
         }
         tr:nth-child(even) {
-            background-color: #f9f9f9;
+            background-color: #fce4ec; /* Pinkish Alternate Row */
         }
         tr:hover {
-            background-color: #f1f1f1;
+            background-color: #e1bee7; /* Hover Light Purple */
+            cursor: default;
         }
         td:nth-child(1) {
             text-align: center;
             width: 50px;
+            font-weight: bold;
+            color: #4a148c;
         }
 
-        /* Responsive Design */
+        /* Responsive Design (Vibrant Updates) */
         @media screen and (max-width: 768px) {
             .controls {
                 flex-direction: column;
@@ -110,34 +122,34 @@
                 left: -9999px;
             }
             tr {
-                border: 1px solid #ccc;
-                margin-bottom: 15px;
-                border-radius: 5px;
-                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+                border: 2px solid #9c27b0; /* Stronger mobile border */
+                margin-bottom: 20px;
+                border-radius: 8px;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
             }
             td {
                 border: none;
-                border-bottom: 1px solid #eee;
+                border-bottom: 1px solid #e1bee7;
                 position: relative;
-                padding-left: 50%;
+                padding-left: 55%; /* Increased padding for label */
                 text-align: right;
             }
             td:before {
                 position: absolute;
                 top: 50%;
-                left: 6px;
+                left: 10px;
                 width: 45%;
                 padding-right: 10px;
                 white-space: nowrap;
                 content: attr(data-label);
                 font-weight: bold;
-                color: #555;
+                color: #8e24aa; /* Mobile label color */
                 transform: translateY(-50%);
                 text-align: left;
             }
             td:nth-child(1) {
                 text-align: right;
-                padding-left: 50%;
+                padding-left: 55%;
             }
         }
     </style>
