@@ -3,32 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NORTH WESTERN CHRISTIAN TRAINING INSTITUTE - Enrollment List (201 Graduates)</title>
+    <title>NORTHWESTERN TRAINING INSTITUTE - List of Graduating Students</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300,400,700&display=swap" rel="stylesheet">
+    
     <style>
-        /* New Vibrant Styles */
+        /* 2. MODERN BASE STYLES */
+        :root {
+            --primary-color: #2c698d; /* Professional Blue/Teal */
+            --header-color: #1e3a5f;
+            --background-light: #f9fbfd;
+            --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --shadow-medium: 0 6px 15px rgba(0, 0, 0, 0.1);
+        }
+
         body {
-            font-family: 'Verdana', sans-serif; /* Changed Font */
+            font-family: 'Roboto', Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f3e5f5; /* Light Lavender Background */
+            background-color: var(--background-light);
         }
         .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 20px auto;
-            background-color: #ffffff;
-            padding: 25px;
-            box-shadow: 0 10px 20px rgba(74, 20, 140, 0.2); /* Deep Purple Shadow */
+            width: 95%;
+            max-width: 1400px;
+            margin: 30px auto;
+            background-color: #fff;
+            padding: 30px;
+            box-shadow: var(--shadow-medium);
             border-radius: 12px;
-            border: 2px solid #9c27b0; /* Vibrant Purple Border */
         }
-        /* Logo Styling */
+        
+        /* Logo Styling - Retained */
         .logo-container {
             text-align: center;
             margin-bottom: 10px;
         }
         .logo {
-            max-width: 120px; 
+            max-width: 120px;
             height: auto;
             display: block;
             margin: 0 auto;
@@ -36,76 +47,138 @@
         
         h1 {
             text-align: center;
-            color: #4a148c; /* Dark Purple */
+            color: var(--header-color);
             margin-bottom: 5px;
-            border-bottom: 4px solid #ce93d8; /* Light Purple Separator */
-            padding-bottom: 15px;
-            font-size: 2.5em;
+            border-bottom: 4px solid var(--primary-color);
+            padding-bottom: 10px;
+            font-weight: 700;
         }
         h2 {
             text-align: center;
-            color: #8e24aa; /* Medium Purple */
-            font-size: 1.4em;
+            color: #7f8c8d;
+            font-size: 1.3em;
             margin-top: 0;
             margin-bottom: 30px;
+            font-weight: 300;
         }
+        
+        /* 3. MODERN CONTROLS */
         .controls {
             display: flex;
             justify-content: space-between;
+            align-items: center;
             margin-bottom: 25px;
             gap: 15px;
         }
         .controls input, .controls select {
-            padding: 12px;
-            border: 2px solid #ce93d8;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
             border-radius: 8px;
             font-size: 16px;
-            background-color: #f7f3f9;
-            transition: border-color 0.3s;
+            box-shadow: var(--shadow-light);
+            transition: all 0.3s ease;
         }
         .controls input:focus, .controls select:focus {
-             border-color: #4a148c;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(44, 105, 141, 0.2);
+            outline: none;
         }
         .controls input {
             flex-grow: 1;
         }
         .controls select {
             width: 250px; 
+            cursor: pointer;
         }
+        
+        /* 4. STYLISH TABLE */
         table {
             width: 100%;
-            border-collapse: collapse;
-            margin-top: 25px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-collapse: separate;
+            border-spacing: 0;
+            margin-top: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            overflow: hidden; /* Ensures rounded corners clip content */
         }
         th, td {
-            border: 1px solid #e1bee7; /* Very Light Purple Border */
-            padding: 14px 18px;
+            border: none;
+            padding: 15px 20px;
             text-align: left;
         }
         th {
-            background-color: #4a148c; /* Table Header Dark Purple */
+            background-color: var(--primary-color);
             color: white;
-            font-weight: bold;
+            font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
+            border-bottom: 3px solid #1e3a5f;
         }
+        /* Table Body Rows */
         tr:nth-child(even) {
-            background-color: #fce4ec; /* Pinkish Alternate Row */
+            background-color: #f4f6f8;
         }
         tr:hover {
-            background-color: #e1bee7; /* Hover Light Purple */
-            cursor: default;
+            background-color: #e8f5ff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            transform: scale(1.005);
+            transition: all 0.15s ease-in-out;
         }
         td:nth-child(1) {
             text-align: center;
             width: 50px;
-            font-weight: bold;
-            color: #4a148c;
+            font-weight: 700;
+            color: #555;
+        }
+        
+        /* 5. COURSE LEVEL COLOR CLASSES (Dynamic Highlighting) */
+        .level-phd {
+            color: #C0392B; /* Dark Red */
+            font-weight: 700;
+            background-color: #fcecec;
+            border-radius: 4px;
+            padding: 5px 10px;
+            display: inline-block;
+        }
+        .level-masters {
+            color: #F39C12; /* Gold/Orange */
+            font-weight: 700;
+            background-color: #fdf5e6;
+            border-radius: 4px;
+            padding: 5px 10px;
+            display: inline-block;
+        }
+        .level-diploma {
+            color: #3498db; /* Teal/Blue */
+            font-weight: 700;
+            background-color: #eaf3fb;
+            border-radius: 4px;
+            padding: 5px 10px;
+            display: inline-block;
+        }
+        .level-bachelors {
+            color: #27AE60; /* Forest Green */
+            font-weight: 700;
+            background-color: #eaf7ee;
+            border-radius: 4px;
+            padding: 5px 10px;
+            display: inline-block;
+        }
+        .level-certificate {
+            color: #9B59B6; /* Purple */
+            font-weight: 700;
+            background-color: #f7ebfb;
+            border-radius: 4px;
+            padding: 5px 10px;
+            display: inline-block;
         }
 
-        /* Responsive Design (Vibrant Updates) */
+        /* 6. Responsive Design (Retained, but enhanced) */
         @media screen and (max-width: 768px) {
+            .container {
+                padding: 15px;
+                margin: 15px auto;
+            }
             .controls {
                 flex-direction: column;
             }
@@ -122,16 +195,16 @@
                 left: -9999px;
             }
             tr {
-                border: 2px solid #9c27b0; /* Stronger mobile border */
-                margin-bottom: 20px;
+                border: 1px solid #ccc;
+                margin-bottom: 15px;
                 border-radius: 8px;
-                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             }
             td {
                 border: none;
-                border-bottom: 1px solid #e1bee7;
+                border-bottom: 1px solid #eee;
                 position: relative;
-                padding-left: 55%; /* Increased padding for label */
+                padding-left: 55%;
                 text-align: right;
             }
             td:before {
@@ -143,7 +216,7 @@
                 white-space: nowrap;
                 content: attr(data-label);
                 font-weight: bold;
-                color: #8e24aa; /* Mobile label color */
+                color: #555;
                 transform: translateY(-50%);
                 text-align: left;
             }
@@ -158,11 +231,11 @@
 
     <div class="container">
         <div class="logo-container">
-            <img src="logo.png" alt="NORTH WESTERN CHRISTIAN TRAINING INSTITUTE Logo" class="logo">
+            <img src="logo.png" alt="NORTHWESTERN TRAINING INSTITUTE Logo" class="logo">
         </div>
         
-        <h1>NORTH WESTERN CHRISTIAN TRAINING INSTITUTE</h1>
-        <h2>Student Enrollment List (Total: 201 Entries)</h2>
+        <h1>NORTHWESTERN TRAINING INSTITUTE</h1>
+        <h2>List of Graduating Students (Total: 201 Entries)</h2>
 
         <div class="controls">
             <input type="text" id="searchInput" placeholder="Search by Name or Course..." onkeyup="filterTable()">
@@ -391,11 +464,23 @@
 
         const tableBody = document.querySelector('#enrollmentTable tbody');
 
+        // Helper function to get the CSS class based on course name
+        function getLevelClass(courseName) {
+            const course = courseName.toUpperCase();
+            if (course.includes('PHD')) return 'level-phd';
+            if (course.includes('MA') || course.includes('MASTERS')) return 'level-masters';
+            if (course.includes('DIP') || course.includes('DIPLOMA')) return 'level-diploma';
+            if (course.includes('BA') || course.includes('DEGREE')) return 'level-bachelors';
+            if (course.includes('CT')) return 'level-certificate';
+            return ''; // Default class
+        }
+
         // Function to render the table 
         function renderTable(data) {
-            tableBody.innerHTML = ''; // Clear existing rows
+            tableBody.innerHTML = ''; 
             data.forEach(student => {
                 const row = tableBody.insertRow();
+                const levelClass = getLevelClass(student.course);
                 
                 let cellNo = row.insertCell();
                 cellNo.textContent = student.no;
@@ -405,8 +490,9 @@
                 cellName.textContent = student.name;
                 cellName.setAttribute('data-label', 'Name');
 
+                // Apply dynamic color class to the Course/Level cell
                 let cellCourse = row.insertCell();
-                cellCourse.textContent = student.course;
+                cellCourse.innerHTML = `<span class="${levelClass}">${student.course}</span>`;
                 cellCourse.setAttribute('data-label', 'Course/Level');
             });
         }
