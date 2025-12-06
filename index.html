@@ -1,469 +1,537 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Northwestern Training Institute Graduates List</title>
-    
-    <style>
-        /* --- Base & Layout --- */
-        body { 
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            margin: 0; 
-            padding: 20px;
-            /* VIBRANT BACKGROUND: Soft gradient */
-            background: linear-gradient(135deg, #e0f7fa 0%, #e8f5e9 100%); 
-            color: #333;
-            min-height: 100vh;
-        }
-        .container { 
-            max-width: 1400px; 
-            margin: 20px auto; 
-            padding: 30px;
-            background-color: #ffffff;
-            border-radius: 12px;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2); 
-        }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>North Western Christian Training Institute Graduates List</title>
+    
+    <style>
+        /* --- Base & Layout --- */
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            margin: 0; 
+            padding: 20px;
+            /* VIBRANT BACKGROUND: Brighter, deeper gradient */
+            background: linear-gradient(135deg, #f0e6ff 0%, #b3e5fc 100%); /* Lavender to Light Blue */
+            color: #333;
+            min-height: 100vh;
+        }
+        .container { 
+            max-width: 1400px; 
+            margin: 20px auto; 
+            padding: 30px;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25); 
+        }
 
-        /* --- Header & Title --- */
-        .main-header {
-            /* Amplified gradient for the header container */
-            background: linear-gradient(90deg, #b3e5fc, #81d4fa); 
-            border-radius: 10px;
-            padding: 20px;
-            margin-bottom: 40px;
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-            text-align: center; /* Fallback for older browsers */
+        /* --- Header & Title --- */
+        .main-header {
+            /* Amplified gradient for the header container */
+            background: linear-gradient(90deg, #673ab7, #9575cd); /* Deep Purple to Medium Purple */
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 40px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
 
-            /* Flexbox for centering logo and text */
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+        .logo {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 10px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #ede7f6; /* Very Light Purple border */
+        }
 
-        .logo {
-            width: 80px;
-            height: 80px;
-            margin-bottom: 10px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 4px solid #1a237e; /* Deep blue border for visibility */
-        }
+        h1 { 
+            color: #ffffff; /* White text for contrast on purple background */
+            margin: 0;
+            padding-bottom: 0;
+            font-size: 2.5em;
+            font-weight: 700;
+        }
+        
+        /* --- Filter Controls --- */
+        .filter-controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 30px;
+            justify-content: center;
+        }
+        .search-input, .filter-dropdown {
+            padding: 12px 20px;
+            border: 2px solid #5e35b1; /* Vibrant Deep Purple border */
+            border-radius: 30px;
+            font-size: 1.1em;
+            outline: none;
+            flex: 1 1 300px; 
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+        .search-input:focus, .filter-dropdown:focus {
+            border-color: #311b92; /* Focus on Darker Purple */
+            box-shadow: 0 0 10px rgba(49, 27, 146, 0.3);
+        }
 
-        h1 { 
-            color: #1a237e; /* Deep Indigo */
-            margin: 0;
-            padding-bottom: 0;
-            font-size: 2.5em;
-            font-weight: 700;
-        }
-        
-        /* --- Filter Controls --- */
-        .filter-controls {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin-bottom: 30px;
-            justify-content: center;
-        }
-        .search-input, .filter-dropdown {
-            padding: 12px 20px;
-            border: 2px solid #00796b; /* Vibrant Teal border */
-            border-radius: 30px;
-            font-size: 1.1em;
-            outline: none;
-            flex: 1 1 300px; 
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-            transition: border-color 0.3s, box-shadow 0.3s;
-        }
-        .search-input:focus, .filter-dropdown:focus {
-            border-color: #1a237e; /* Focus on Indigo */
-            box-shadow: 0 0 10px rgba(26, 35, 126, 0.2);
-        }
+        /* --- Course Section --- */
+        .course-section {
+            margin-bottom: 40px;
+            padding: 25px;
+            border-radius: 10px;
+            background-color: #fafafa; /* Very light background for contrast */
+            border-left: 6px solid #4a148c; /* Darker Purple accent bar */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        .course-section h2 { 
+            color: #4527a0; /* Medium Deep Purple */
+            margin-top: 0; 
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e0f7fa;
+            font-size: 1.8em;
+            font-weight: 600;
+        }
+        .level-count {
+            font-size: 0.9em;
+            font-weight: 500;
+            color: #555;
+            background-color: #e8eaf6; /* Light Blue-Grey */
+            padding: 4px 10px;
+            border-radius: 15px;
+            margin-left: 10px;
+        }
 
-        /* --- Course Section --- */
-        .course-section {
-            margin-bottom: 40px;
-            padding: 25px;
-            border-radius: 10px;
-            background-color: #f8fcfd; /* Very light background for contrast */
-            border-left: 6px solid #00bcd4; /* Brighter accent bar */
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-        }
-        .course-section h2 { 
-            color: #00796b; 
-            margin-top: 0; 
-            padding-bottom: 10px;
-            border-bottom: 2px solid #e0f7fa;
-            font-size: 1.8em;
-            font-weight: 600;
-        }
-        .level-count {
-            font-size: 0.9em;
-            font-weight: 500;
-            color: #555;
-            background-color: #e0f7fa; 
-            padding: 4px 10px;
-            border-radius: 15px;
-            margin-left: 10px;
-        }
+        /* --- Table Styling --- */
+        .graduates-table { 
+            width: 100%; 
+            border-collapse: separate; 
+            border-spacing: 0;
+            margin-top: 20px; 
+            overflow: hidden; 
+            border-radius: 8px;
+        }
+        .graduates-table th, .graduates-table td { 
+            padding: 15px; 
+            text-align: left; 
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .graduates-table th { 
+            background-color: #4527a0; /* Deep Purple Header */
+            color: white;
+            text-transform: uppercase;
+            font-size: 0.9em;
+            letter-spacing: 1px;
+        }
+        .graduates-table tbody tr:nth-child(even) {
+            background-color: #f7f7f7;
+        }
+        .graduates-table tbody tr:hover {
+            background-color: #d1c4e9; /* Lighter Purple on hover */
+            cursor: default;
+        }
+        
+        /* --- Level Badge Styling (Vibrant Colors) --- */
+        .level-badge {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            font-weight: 700;
+            color: white;
+            min-width: 60px;
+            text-align: center;
+            text-transform: uppercase;
+            margin-left: 10px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* DIP/DIPLOMA/CT - Orange/Amber */
+        .dip-bible--theology, .diploma-conflict-resolution--management, .dip-counseling-psychology, .dip-public-administration--governance, .dip-project-planning, .ct-bible--theology, .dip-bible--theology, .dip-counseling-psychology, .diploma {
+            background-color: #ffb300; 
+        }
+        
+        /* BA/DEGREE - Teal/Cyan */
+        .ba-counseling-psychology, .ba-public-administration--governance, .ba-social-work--criminology, .ba-degree-lam, .ba-degree-education-arts, .ba-special-needs, .ba-arts-in-kiswahili---cre, .ba-business-administration-and-management, .ba-early-childhood-education--ecde---primary, .degree-project-planning, .ba-criminal-justice, .ba-education-arts-history--kiswahili, .ba-education-arts-english--kiswahili, .ba-early-childhood-education--ecde--primary, .ba-education-artshistory--kiswahili, .ba-education-arts-kiswahili-geography, .ba-early-childhood-education--ecde--prim, .ba-bible--theology, .degree-bible--theology, .ba-human-resioures--social-development, .ba-lam {
+            background-color: #00bcd4; 
+        }
 
-        /* --- Table Styling --- */
-        .graduates-table { 
-            width: 100%; 
-            border-collapse: separate; 
-            border-spacing: 0;
-            margin-top: 20px; 
-            overflow: hidden; 
-            border-radius: 8px;
-        }
-        .graduates-table th, .graduates-table td { 
-            padding: 15px; 
-            text-align: left; 
-            border-bottom: 1px solid #e0e0e0;
-        }
-        .graduates-table th { 
-            background-color: #1a237e; /* Deep Indigo Header */
-            color: white;
-            text-transform: uppercase;
-            font-size: 0.9em;
-            letter-spacing: 1px;
-        }
-        .graduates-table tbody tr:nth-child(even) {
-            background-color: #f5f5f5;
-        }
-        .graduates-table tbody tr:hover {
-            background-color: #b2ebf2; /* Light Teal on hover */
-            cursor: default;
-        }
-        
-        /* --- Level Badge Styling (Vibrant Colors) --- */
-        .level-badge {
-            display: inline-block;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.8em;
-            font-weight: 700;
-            color: white;
-            min-width: 60px;
-            text-align: center;
-            text-transform: uppercase;
-            margin-left: 10px;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-        }
-        
-        /* DIP/DIPLOMA/CT - Orange/Amber */
-        .dip-bible-theology, .diploma-conflict-resolution-management, .dip-counseling-psychology, .dip-public-administration-governance, .dip-project-planning, .ct-bible-theology, .dip-bible--theology {
-            background-color: #ff9800; 
-        }
-        
-        /* BA/DEGREE - Teal/Cyan */
-        .ba-counseling-psychology, .ba-public-administration-governance, .ba-social-work-criminology, .ba-degree-lam, .ba-degree-education-arts, .ba-special-needs, .ba-arts-in-kiswahili-cre, .ba-business-administration-and-management, .ba-early-childhood-education-ecde-primary, .degree-project-planning, .ba-criminal-justice, .ba-bible-theology, .ba-human-resiources-social-work, .ba-lam {
-            background-color: #00bcd4; 
-        }
-
-        /* MA/MASTERS - Deep Purple/Indigo */
-        .ma-counseling-psychology, .ma-public-administration-governance, .ma-public-administration-political-science, .ma-in-education-planning-administration-management, .ma-degree-lam, .leadership-public-governance, .ma-linguistic {
-            background-color: #673ab7; 
-        }
-        
-        .no-results {
-            text-align: center;
-            color: #d32f2f;
-            background-color: #ffebee;
-            padding: 20px;
-            border-radius: 8px;
-            font-size: 1.4em;
-            margin-top: 40px;
-            border: 1px solid #ef9a9a;
-        }
-    </style>
+        /* MA/MASTERS/PHD/LEADERSHIP - Deep Purple/Indigo */
+        .ma-counseling-psychology, .ma-public-administration--governance, .ma-public-administration--political-science, .ma-in-education-planning-administration--management, .ma-degree-lam, .leadership--public-governance, .ma-project-planning--managemrnt, .phd-bible--theology, .phd-in-lam, .masters-bible--theology, .ma-linguistic, .ma-arts-kiswahili, .ma-arts-religion, .phd-kiswahili {
+            background-color: #512da8; 
+        }
+        
+        .no-results {
+            text-align: center;
+            color: #d32f2f;
+            background-color: #ffebee;
+            padding: 20px;
+            border-radius: 8px;
+            font-size: 1.4em;
+            margin-top: 40px;
+            border: 1px solid #ef9a9a;
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <header class="main-header">
-            <img src="https://placehold.co/80x80/1a237e/ffffff?text=NTI+Logo" 
-                 alt="Northwestern Training Institute Logo" 
-                 class="logo"
-                 onerror="this.onerror=null; this.src='https://placehold.co/80x80/9e9e9e/ffffff?text=Logo';"
-            >
-            <h1>Northwestern Training Institute - Graduation List</h1>
-        </header>
+    <div class="container">
+        <header class="main-header">
+            <img src="IMG-20251203-WA0032.jpg" 
+                 alt="North Western Christian Training Institute Logo" 
+                 class="logo"
+                 onerror="this.onerror=null; this.src='https://placehold.co/80x80/9e9e9e/ffffff?text=Logo';"
+            >
+            <h1>North Western Christian Training Institute - Graduation List</h1>
+        </header>
 
-        <div class="filter-controls">
-            <input type="text" id="searchInput" placeholder="Search by Name or Course..." class="search-input">
-            <select id="courseFilter" class="filter-dropdown">
-                <option value="">— Filter by Course —</option>
-            </select>
-        </div>
-        <div id="graduationList">
-            </div>
-    </div>
+        <div class="filter-controls">
+            <input type="text" id="searchInput" placeholder="Search by Name or Course..." class="search-input">
+            <select id="courseFilter" class="filter-dropdown">
+                <option value="">— Filter by Course —</option>
+            </select>
+        </div>
+        <div id="graduationList">
+                    </div>
+    </div>
 
-    <script>
-        // --- COMPLETE GRADUATE DATA LIST (140 ENTRIES) ---
-        const graduationList = [
-            { no: 1, name: 'KOCHARA PETER LOTIANG', course: 'DIP-BIBLE & THEOLOGY' },
-            { no: 2, name: 'BOAZ ASICHE MURKWE', course: 'DIP-BIBLE & THEOLOGY' },
-            { no: 3, name: 'SUSILA NAKHWILA SIMIYU', course: 'DIP-BIBLE & THEOLOGY' },
-            { no: 4, name: 'MARTIN NCHIRING NGLOA', course: 'DIP-BIBLE & THEOLOGY' },
-            { no: 5, name: 'PIUS KIPCHUMBA KIPTOO', course: 'DIP-BIBLE & THEOLOGY' },
-            { no: 6, name: 'JAMES LORGEN', course: 'DIP-BIBLE & THEOLOGY' },
-            { no: 7, name: 'NANCY MACHAGARIA', course: 'DIP-BIBLE & THEOLOGY' },
-            { no: 8, name: 'PETER EKWAI', course: 'DIP-BIBLE & THEOLOGY' },
-            { no: 9, name: 'VIOLET KAVAI', course: 'DIP-BIBLE & THEOLOGY' },
-            { no: 10, name: 'JOYCE KEBOI WANJIRU', course: 'DIP-BIBLE & THEOLOGY' },
-            { no: 11, name: 'PHILIP KIRO', course: 'DIP-BIBLE & THEOLOGY' },
-            { no: 12, name: 'GRAPHAINE NABWIRE OMULA', course: 'DIP-BIBLE & THEOLOGY' },
-            { no: 13, name: 'MILKAH MAGIRI MAINA', course: 'CT-BIBLE & THEOLOGY' },
-            { no: 14, name: 'MARYANN WANJIRU NJENGA', course: 'CT-BIBLE & THEOLOGY' },
-            { no: 15, name: 'JUDITH WANJIKERA KIARIE', course: 'DIP-BIBLE & THEOLOGY' },
-            { no: 16, name: 'GRACE MWIMA', course: 'CT-BIBLE & THEOLOGY' },
-            { no: 17, name: 'STEPHEN OUMA OPIYO', course: 'CT-BIBLE & THEOLOGY' },
-            { no: 18, name: 'PETER MWANGI WAINANINA', course: 'CT-BIBLE & THEOLOGY' },
-            { no: 19, name: 'JANET MWIKALI RIVONIO', course: 'CT-BIBLE & THEOLOGY' },
-            { no: 20, name: 'HOWARD BOY CHIDED', course: 'CT-BIBLE & THEOLOGY' },
-            { no: 21, name: 'DAVID NJUGUNA KIARIE', course: 'CT-BIBLE & THEOLOGY' },
-            { no: 22, name: 'AGNES WANGUI NYIIHA', course: 'DIP-BIBLE & THEOLOGY' },
-            { no: 23, name: 'ROSALINE WANGARI KAMAU', course: 'DIP-BIBLE & THEOLOGY' },
-            { no: 24, name: 'DOROTHY GITAU MUGA', course: 'DIP-BIBLE & THEOLOGY' },
-            { no: 25, name: 'KENNEDY ADUBWA UHANDA', course: 'DIP-BIBLE & THEOLOGY' },
-            { no: 26, name: 'ABEL ONYANGO SANDE', course: 'DIP-BIBLE & THEOLOGY' },
-            { no: 27, name: 'PATEL WEKERE BARAZA', course: 'DIP-BIBLE & THEOLOGY' },
-            { no: 28, name: 'PHILEMON KARUTHO KIPROP', course: 'DIP-BIBLE & THEOLOGY' },
-            { no: 29, name: 'FRANCIS KINAYA ORAKE', course: 'DIP-BIBLE & THEOLOGY' },
-            { no: 30, name: 'BANARD KARIUKI MUNGAI', course: 'DIP-BIBLE & THEOLOGY' },
-            { no: 31, name: 'JONATHAN K. CHEBOR', course: 'DIP-BIBLE & THEOLOGY' },
-            { no: 32, name: 'NANCY NAKHUNGUI KHAKAME', course: 'DIP-COUNSELING PSYCHOLOGY' },
-            { no: 33, name: 'SAMWEL CHANGWO NGIGI', course: 'MA-COUNSELING PSYCHOLOGY' },
-            { no: 34, name: 'PAUL MBURU NG\'ANG\'A', course: 'MA-COUNSELING PSYCHOLOGY' },
-            { no: 35, name: 'ROSE NYOTIAH WANYAMA', course: 'MA-COUNSELING PSYCHOLOGY' },
-            { no: 36, name: 'MARTINA NTEMO', course: 'MA-COUNSELING PSYCHOLOGY' },
-            { no: 37, name: 'DIANA KHAWA WENASWA', course: 'MA-COUNSELING PSYCHOLOGY' },
-            { no: 38, name: 'NAOMI KHANJILA WANJALA', course: 'BA COUNSELING PSYCHOLOGY' },
-            { no: 39, name: 'MADINA TEMKO', course: 'BA COUNSELING PSYCHOLOGY' },
-            { no: 40, name: 'WYCLIFFE NGUGUI CHITECHI', course: 'BA COUNSELING PSYCHOLOGY' },
-            { no: 41, name: 'JUDITH NASIMIYU SIKOLIA', course: 'BA COUNSELING PSYCHOLOGY' },
-            { no: 42, name: 'MARIA TUNAI HASSAN', course: 'CT-BIBLE & THEOLOGY' },
-            { no: 43, name: 'ELIAS WAFULA MUNYASI', course: 'CT-BIBLE & THEOLOGY' },
-            { no: 44, name: 'STEPHEN WEKESA', course: 'CT-BIBLE & THEOLOGY' },
-            { no: 45, name: 'ELIJAH MASAI SIMIYU', course: 'CT-BIBLE & THEOLOGY' },
-            { no: 46, name: 'BETTINE NEKESA OKUMU', course: 'CT-BIBLE & THEOLOGY' },
-            { no: 47, name: 'WYCLIFFE IVUSA', course: 'CT-BIBLE & THEOLOGY' },
-            { no: 48, name: 'GILBERT CHAVANYAYA MAGOMERE', course: 'CT-BIBLE & THEOLOGY' },
-            { no: 49, name: 'MODESTER AGAN', course: 'CT-BIBLE & THEOLOGY' },
-            { no: 50, name: 'GEORGE AGESA ODEMBE', course: 'CT-BIBLE & THEOLOGY' },
-            { no: 51, name: 'SOFIA NAFIJLA MUSIKANA', course: 'DIP-BIBLE & THEOLOGY' },
-            { no: 52, name: 'ALVIN WABWOLA MUSIEU', course: 'DIP-BIBLE & THEOLOGY' },
-            { no: 53, name: 'EMMACY WANJALA ETORI', course: 'DIP-BIBLE & THEOLOGY' },
-            { no: 54, name: 'COLETTA NASIMIYU WANYONYI', course: 'DIP-BIBLE & THEOLOGY' },
-            { no: 55, name: 'VIOLET NAFULA WAFULA', course: 'DIP-BIBLE & THEOLOGY' },
-            { no: 56, name: 'PAULINE OSITA ASITWA', course: 'DIP-BIBLE & THEOLOGY' },
-            { no: 57, name: 'JANNET WANJALA SIKALIA', course: 'DIP-BIBLE & THEOLOGY' },
-            { no: 58, name: 'COLLINS WAFULA WEPUKHULU', course: 'DIP-BIBLE & THEOLOGY' },
-            { no: 59, name: 'JOHN NALIANYA', course: 'DIP-BIBLE & THEOLOGY' },
-            { no: 60, name: 'ALICE NANJEKHO WANYONYI', course: 'DIP-BIBLE & THEOLOGY' },
-            { no: 61, name: 'BRIDGED NEKESA SIMIYU', course: 'DIP-BIBLE & THEOLOGY' },
-            { no: 62, name: 'IAN OMONDI KIEYO', course: 'DIP-BIBLE & THEOLOGY' },
-            { no: 63, name: 'LIBBY CHANYAI WATAKO', course: 'DIP-BIBLE & THEOLOGY' },
-            { no: 64, name: 'TITUS OMONDI OMUDDEKE', course: 'DIP-BIBLE & THEOLOGY' },
-            { no: 65, name: 'ASUMAN MPAMO', course: 'DIP-BIBLE & THEOLOGY' },
-            { no: 66, name: 'CONE ACHENG OMONDI', course: 'DIP-BIBLE & THEOLOGY' },
-            { no: 67, name: 'EVALINE NALWENGE OWOLA', course: 'DIP-BIBLE & THEOLOGY' },
-            { no: 68, name: 'NORAH NAMACHANYA MUYALA', course: 'DIP-BIBLE & THEOLOGY' },
-            { no: 69, name: 'DANIEL OJIAMBO EGESA', course: 'DIP-BIBLE & THEOLOGY' },
-            { no: 70, name: 'JOSEPHINE NANJALA SIMEMA', course: 'DIP-BIBLE & THEOLOGY' },
-            { no: 71, name: 'ERIC SIMIYU', course: 'DIP-BIBLE & THEOLOGY' },
-            { no: 72, name: 'PETER WANGILA MULUNDA', course: 'DIP-BIBLE & THEOLOGY' },
-            { no: 73, name: 'MARY NYANDIEKA', course: 'DIP-BIBLE & THEOLOGY' },
-            { no: 74, name: 'JOSEPHINE NANJALA SIMEMA', course: 'DIP-BIBLE & THEOLOGY' },
-            { no: 75, name: 'HELLEN NYANJALA MUSOMI', course: 'DIP-BIBLE & THEOLOGY' },
-            { no: 76, name: 'DOROTHY AUMA AMASAKA', course: 'DIP-BIBLE & THEOLOGY' },
-            { no: 77, name: 'NANCY NANGWEYI KHAKAME', course: 'DIP-BIBLE & THEOLOGY' },
-            { no: 78, name: 'BRIAN WEKESA SIMIYU', course: 'DIP-BIBLE & THEOLOGY' },
-            { no: 79, name: 'SARAH NANJALA WEKESA', course: 'DIP-BIBLE & THEOLOGY' },
-            { no: 80, name: 'PRISCA NDEGEYA KHAYEBA', course: 'DIP-BIBLE & THEOLOGY' },
-            { no: 81, name: 'ALOY GITAU MURI', course: 'DIP-BIBLE & THEOLOGY' },
-            { no: 82, name: 'NASHON MAJOR OMULI', course: 'DIP-BIBLE & THEOLOGY' },
-            { no: 83, name: 'PATRICK OSINYA OUMA', course: 'DIP-BIBLE & THEOLOGY' },
-            { no: 84, name: 'DANIEL IMOLI MAGOTSWI', course: 'DIP-BIBLE & THEOLOGY' },
-            { no: 85, name: 'CHRISTINE NAFUNA KASILI', course: 'BA PUBLIC ADMINISTRATION & GOVERNANCE' },
-            { no: 86, name: 'DENNIS WAMBUCHII', course: 'BA PUBLIC ADMINISTRATION & GOVERNANCE' },
-            { no: 87, name: 'DENNIS WEKESA SIMIYU', course: 'BA PUBLIC ADMINISTRATION & GOVERNANCE' },
-            { no: 88, name: 'JOSEPH SIMIYU WANYAMA.', course: 'BA PUBLIC ADMINISTRATION & GOVERNANCE' },
-            { no: 89, name: 'GILBERT MAMAI', course: 'DIP PUBLIC ADMINISTRATION & GOVERNANCE' },
-            { no: 90, name: 'ADELAIDE NANJALA WEKESA', course: 'LEADERSHIP & PUBLIC GOVERNANCE' },
-            { no: 91, name: 'REHEMA NASIMIYU PESI', course: 'MA PUBLIC ADMINISTRATION & GOVERNANCE' },
-            { no: 92, name: 'YVONNE NANJALA WASWA', course: 'MA PUBLIC ADMINISTRATION & GOVERNANCE' },
-            { no: 93, name: 'JACKSON MUKHANGE CHETAMBE', course: 'MA PUBLIC ADMINISTRATION & GOVERNANCE' },
-            { no: 94, name: 'ZAKARIA WANYONYICHEKECHI', course: 'MA PUBLIC ADMINISTRATION & GOVERNANCE' },
-            { no: 95, name: 'PHILICE LUSIKE BARASA', course: 'MA PUBLIC ADMINISTRATION & GOVERNANCE' },
-            { no: 96, name: 'GODFREY SIMIYU WANYALA', course: 'MA PUBLIC ADMINISTRATION & GOVERNANCE' },
-            { no: 97, name: 'FELIX MAINA ANJELA', course: 'MA PUBLIC ADMINISTRATION & GOVERNANCE' },
-            { no: 98, name: 'SABWAMI CAROLYNE NAFULA', course: 'MA PUBLIC ADMINISTRATION & GOVERNANCE' },
-            { no: 99, name: 'CAROLYN NAMWENYA MUCHOE', course: 'BA SOCIAL WORK & CRIMINOLOGY' },
-            { no: 100, name: 'MOURINE KHANJILA WAFULA', course: 'MA PUBLIC ADMINISTRATION & POLITICAL SCIENCE' },
-            { no: 101, name: 'MERCY NEKESA WEPUKHULU', course: 'BA PUBLIC ADMINISTRATION & GOVERNANCE' },
-            { no: 102, name: 'VALENTINE NALIAKA WOPICHO', course: 'DIPLOMA CONFLICT RESOLUTION & MANAGEMENT' },
-            { no: 103, name: 'KIRUAYE VIOLET MBAYAKI', course: 'MA IN EDUCATION PLANNING ADMINISTRATION & MANAGEMENT' },
-            { no: 104, name: 'JANE NAFULA', course: 'MA IN EDUCATION PLANNING ADMINISTRATION & MANAGEMENT' },
-            { no: 105, name: 'GLADYS NAFULA WEKUNDA', course: 'MA IN EDUCATION PLANNING ADMINISTRATION & MANAGEMENT' },
-            { no: 106, name: 'SKYTRE MUKHWANA NDALILA', course: 'MA IN EDUCATION PLANNING ADMINISTRATION & MANAGEMENT' },
-            { no: 107, name: 'LEWISLENNOX MULONGO NDALILA', course: 'MA IN EDUCATION PLANNING ADMINISTRATION & MANAGEMENT' },
-            { no: 108, name: 'EVERLYNE NEKESA SIKOLIA', course: 'MA IN EDUCATION PLANNING ADMINISTRATION & MANAGEMENT' },
-            { no: 109, name: 'DAMARIS APAMA EKIRAPA', course: 'BA CRIMINAL JUSTICE' },
-            { no: 110, name: 'ALEX NANJALA NAKOKONYA', course: 'DIP-PROJECT PLANNING' },
-            { no: 111, name: 'FEDLES SITUMA JUMA', course: 'DEGREE-PROJECT PLANNING' },
-            { no: 112, name: 'DOUGLAS WAFULA KUCHU', course: 'BA DEGREE-LAM' },
-            { no: 113, name: 'JOSEPHINE CHILABAGA KIAGE', course: 'BA DEGREE-LAM' },
-            { no: 114, name: 'SUSY NADI WAFULA', course: 'BA DEGREE-LAM' },
-            { no: 115, name: 'HILDABEDA KHAYELE LUKULU', course: 'BA DEGREE-LAM' },
-            { no: 116, name: 'WILSON IBWAGA AVUNG\'ANA', course: 'BA DEGREE-LAM' },
-            { no: 117, name: 'TERESIA WANJIRU NJIHIA', course: 'BA DEGREE-LAM' },
-            { no: 118, name: 'JOSEPH MASINDE', course: 'BA DEGREE-LAM' },
-            { no: 119, name: 'EVANS ASACHA ASIRI', course: 'MA DEGREE-LAM' },
-            { no: 120, name: 'ZUHRIA BABAZENI WEKATI', course: 'BA DEGREE EDUCATION ARTS' },
-            { no: 121, name: 'CHARLES MASIDEY BARASA', course: 'BA SPECIAL NEEDS' },
-            { no: 122, name: 'WANJALA MOSES', course: 'BA ARTS IN KISWAHILI / CRE' },
-            { no: 123, name: 'DORINE NASAMBU LUSAKA', course: 'BA BUSINESS ADMINISTRATION AND MANAGEMENT' },
-            { no: 124, name: 'RICKAEL GEMO SIMIYU', course: 'BA BUSINESS ADMINISTRATION AND MANAGEMENT' },
-            { no: 125, name: 'ANITA YERU CHEBETO', course: 'BA EARLY CHILDHOOD EDUCATION (ECDE) & PRIMARY' },
-            { no: 126, name: 'HARRY M. SAENYI', course: 'BA EDUCATION ARTS HISTORY & KISWAHILI' },
-            { no: 127, name: 'COLLINS B. ODHI' , course: 'BA EDUCATION ARTS HISTORY & KISWAHILI' },
-            { no: 128, name: 'VALENTINE SIMIYU MABONGA', course: 'DIP-BIBLE & THEOLOGY' },
-            { no: 129, name: 'ROSE NASAMBU MUNUYA', course: 'DIP-BIBLE & THEOLOGY' },
-            { no: 130, name: 'GEORGE GORDEN MUTSEMBI', course: 'DIP-BIBLE & THEOLOGY' },
-            { no: 131, name: 'CHRISTOPHER AMAKOBE OMOLO', course: 'DIP-BIBLE & THEOLOGY' },
-            { no: 132, name: 'MARY MUYOKA MASINDE', course: 'BA-BIBLE & THEOLOGY' },
-            { no: 133, name: 'GEOFREY SIUNDU WAFULA', course: 'BA-BIBLE & THEOLOGY' },
-            { no: 134, name: 'MARY WANJIRU NJUGUNA', course: 'BA HUMAN RESIOURCS & SOCIAL WORK' },
-            { no: 135, name: 'ANN MUTHONI MURIUKI', course: 'BA HUMAN RESIOURCS & SOCIAL WORK' },
-            { no: 136, name: 'PETER WAFULA MUYONDO', course: 'BA-BIBLE & THEOLOGY' },
-            { no: 137, name: 'MONICAH MWASHI', course: 'DIP-BIBLE & THEOLOGY' },
-            { no: 138, name: 'MARY NJERI MWANGI', course: 'DIP-BIBLE & THEOLOGY' },
-            { no: 139, name: 'JOHN KUNGU NDIRANGU', course: 'BA-BIBLE & THEOLOGY, BA COUNSELING PSYCHOLOGY' },
-            { no: 140, name: 'TIMOTHY MERU SITUMA', course: 'MA LINGUISTIC' },
-            { no: 141, name: 'TIMOTHY KIOKO MUTUNGA', course: 'BA LAM' }
-        ];
+    <script>
+        // --- COMPLETE GRADUATE DATA LIST (200 ENTRIES) ---
+        const graduationList = [
+            { no: 1, name: 'KOCHARA PETER LOTIANG', course: 'DIP-BIBLE & THEOLOGY' },
+            { no: 2, name: 'BOAZ ASICHE MUTEKWA', course: 'DIP-BIBLE & THEOLOGY' },
+            { no: 3, name: 'STELA NABWILE SIMIYU', course: 'DIP-BIBLE & THEOLOGY' },
+            { no: 4, name: 'MARTIN OCHIENG NG’OLA', course: 'DIP-BIBLE & THEOLOGY' },
+            { no: 5, name: 'PIUS KIPCHUMBA KIPTOO', course: 'DIP-BIBLE & THEOLOGY' },
+            { no: 6, name: 'JAMES LOREEN', course: 'DIP-BIBLE & THEOLOGY' },
+            { no: 7, name: 'FRANCIS MACHARIA', course: 'DIP-BIBLE & THEOLOGY' },
+            { no: 8, name: 'PETER EKWAR', course: 'DIP-BIBLE & THEOLOGY' },
+            { no: 9, name: 'VIOLET KAVAI', course: 'DIP-BIBLE & THEOLOGY' },
+            { no: 10, name: 'JOYCE KEBOI WANJIKU', course: 'DIP-BIBLE & THEOLOGY' },
+            { no: 11, name: 'PHILIP EROT', course: 'DIP-BIBLE & THEOLOGY' },
+            { no: 12, name: 'SARAPHYNE NABWIRE OMULA', course: 'DIP-BIBLE & THEOLOGY' },
+            { no: 13, name: 'MILKA MAGIRI MAINA', course: 'CT-BIBLE & THEOLOGY' },
+            { no: 14, name: 'MARYANN WANJIRU NJENGA', course: 'CT-BIBLE & THEOLOGY' },
+            { no: 15, name: 'JUDITH WAITHERA KIARIE', course: 'CT-BIBLE & THEOLOGY' },
+            { no: 16, name: 'GRACE OMBIMA', course: 'CT-BIBLE & THEOLOGY' },
+            { no: 17, name: 'STEPHEN OUMA OPIYO', course: 'CT-BIBLE & THEOLOGY' },
+            { no: 18, name: 'PETER MWANGI WAINAINA', course: 'CT-BIBLE & THEOLOGY' },
+            { no: 19, name: 'JANET MWIKARI KIVONIO', course: 'CT-BIBLE & THEOLOGY' },
+            { no: 20, name: 'EDWARD BOY CHIDD', course: 'CT-BIBLE & THEOLOGY' },
+            { no: 21, name: 'DAVID NJUGUNA KIARIE', course: 'DIP-BIBLE & THEOLOGY' },
+            { no: 22, name: 'AGNES WANGUI NYIHA', course: 'DIP-BIBLE & THEOLOGY' },
+            { no: 23, name: 'ROSELINE WANGARI KAMAU', course: 'DIP-BIBLE & THEOLOGY' },
+            { no: 24, name: 'GEORGE GICHU MIGWI', course: 'DIP-BIBLE & THEOLOGY' },
+            { no: 25, name: 'KENNEDY ADUBWA LIHANDA', course: 'DIP-BIBLE & THEOLOGY' },
+            { no: 26, name: 'ABEL ONYANGO SANDE', course: 'DIP-BIBLE & THEOLOGY' },
+            { no: 27, name: 'FAITH WACEKE KARANJA', course: 'DIP-BIBLE & THEOLOGY' },
+            { no: 28, name: 'PHILEMON KIPRUTO KIPROP', course: 'DIP-BIBLE & THEOLOGY' },
+            { no: 29, name: 'FRDRICK ICHOYA CHRGE', course: 'DIP-BIBLE & THEOLOGY' },
+            { no: 30, name: 'BANARD KARIUKI MUNGAI', course: 'DIP-BIBLE & THEOLOGY' },
+            { no: 31, name: 'JONATHAN .K. CHEBOR', course: 'DIP-BIBLE & THEOLOGY' },
+            { no: 32, name: 'NANCY NAKHUNGU KHAKAME', course: 'DIP-COUNSELING PSYCHOLOGY' },
+            { no: 33, name: 'SAMWEL KARANJA NGIGI', course: 'MA-COUNSELING PSYCHOLOGY' },
+            { no: 34, name: 'PAUL MBURU NG’ANG’A', course: 'MA-COUNSELING PSYCHOLOGY' },
+            { no: 35, name: 'ROSE NYOTIAH WANYAMA', course: 'MA-COUNSELING PSYCHOLOGY' },
+            { no: 36, name: 'MADINA TEMKO', course: 'MA-COUNSELING PSYCHOLOGY' },
+            { no: 37, name: 'DIANA KHWAKA WANASWA', course: 'MA-COUNSELING PSYCHOLOGY' },
+            { no: 38, name: 'NAOMI KHANJILA WANJALA', course: 'BA COUNSELING PSYCHOLOGY' },
+            { no: 39, name: 'MADINA TEMKO', course: 'BA COUNSELING PSYCHOLOGY' },
+            { no: 40, name: 'WICLIFFE NYANGULE CHITECHI', course: 'BA COUNSELING PSYCHOLOGY' },
+            { no: 41, name: 'JUDITH NASIMIYU SIKOLIA', course: 'BA COUNSELING PSYCHOLOGY' },
+            { no: 42, name: 'MARIA TUNAI HASSAN', course: 'CT-BIBLE & THEOLOGY' },
+            { no: 43, name: 'ELIAS WAFULA MUNYASI', course: 'CT-BIBLE & THEOLOGY' },
+            { no: 44, name: 'STEPHEN WEKESA', course: 'CT-BIBLE & THEOLOGY' },
+            { no: 45, name: 'ELIUD MANASE SIMIYU', course: 'CT-BIBLE & THEOLOGY' },
+            { no: 46, name: 'BETTLYNE NEKESA OKUMU', course: 'CT-BIBLE & THEOLOGY' },
+            { no: 47, name: 'WYCLIFFE IVUSA', course: 'CT-BIBLE & THEOLOGY' },
+            { no: 48, name: 'GILBERT CHAVASINYA MAGOMERE', course: 'CT-BIBLE & THEOLOGY' },
+            { no: 49, name: 'MODESTER AGAN', course: 'CT-BIBLE & THEOLOGY' },
+            { no: 50, name: 'GEORGE AGESA ODEMBE', course: 'CT-BIBLE & THEOLOGY' },
+            { no: 51, name: 'SOFIA  NAFULA MUSIKANA', course: 'DIP-BIBLE & THEOLOGY' },
+            { no: 52, name: 'ALVIN WANJALA MURUTU', course: 'DIP-BIBLE & THEOLOGY' },
+            { no: 53, name: 'MATAYO WANJALA ETORI', course: 'DIP-BIBLE & THEOLOGY' },
+            { no: 54, name: 'COLETA NASIMIYU WANYONYI', course: 'DIP-BIBLE & THEOLOGY' },
+            { no: 55, name: 'VIOLET NAFULA WAFULA', course: 'DIP-BIBLE & THEOLOGY' },
+            { no: 56, name: 'PAULINE OSITA ASITWA', course: 'DIP-BIBLE & THEOLOGY' },
+            { no: 57, name: 'JAMIN WANJALA SIKALA', course: 'DIP-BIBLE & THEOLOGY' },
+            { no: 58, name: 'COLLINS WAFULA WEPUKHULU', course: 'DIP-BIBLE & THEOLOGY' },
+            { no: 59, name: 'JOHN NALIANYA', course: 'DIP-BIBLE & THEOLOGY' },
+            { no: 60, name: 'ALICE NANJEKHO WANYONYI', course: 'DIP-BIBLE & THEOLOGY' },
+            { no: 61, name: 'BRIDGED NEKESA SIMIYU', course: 'DIP-BIBLE & THEOLOGY' },
+            { no: 62, name: 'JARED OMONDI OKEYO', course: 'DIP-BIBLE & THEOLOGY' },
+            { no: 63, name: 'LARRY CANAAN WATAKO', course: 'DIP-BIBLE & THEOLOGY' },
+            { no: 64, name: 'TITUS OMONDI OMUDEKE', course: 'DIP-BIBLE & THEOLOGY' },
+            { no: 65, name: 'ASUMAN MPAMO', course: 'DIP-BIBLE & THEOLOGY' },
+            { no: 66, name: 'CONE ACHIENG OMONDI', course: 'DIP-BIBLE & THEOLOGY' },
+            { no: 67, name: 'EVALINE NALWENGE OWOLA', course: 'DIP-BIBLE & THEOLOGY' },
+            { no: 68, name: 'NORAH NAMACHANJA MUYALA', course: 'DIP-BIBLE & THEOLOGY' },
+            { no: 69, name: 'DANIEL OJIAMBO EGESA', course: 'DIP-BIBLE & THEOLOGY' },
+            { no: 70, name: 'JOSPHINE NANJALA SIMEMA', course: 'DIP-BIBLE & THEOLOGY' },
+            { no: 71, name: 'ERIC SIMIYU', course: 'DIP-BIBLE & THEOLOGY' },
+            { no: 72, name: 'PETER WANGILA MULUNDA', course: 'DIP-BIBLE & THEOLOGY' },
+            { no: 73, name: 'MARY LYAMBILA', course: 'DIP-BIBLE & THEOLOGY' },
+            { no: 74, name: 'JOSEPHINE NANJALA SIMEMA', course: 'DIP-BIBLE & THEOLOGY' },
+            { no: 75, name: 'HELLEN WANJALA MUSOMI', course: 'DIP-BIBLE & THEOLOGY' },
+            { no: 76, name: 'DOROTHY AUMA AMAASA', course: 'DIP-BIBLE & THEOLOGY' },
+            { no: 77, name: 'NANCY NAKHUNGU KHAKAME', course: 'DIP-BIBLE & THEOLOGY' },
+            { no: 78, name: 'BRIAN WEKESA SIMIYU', course: 'DIP-BIBLE & THEOLOGY' },
+            { no: 79, name: 'SARAH NANJALA WEKESA', course: 'DIP-BIBLE & THEOLOGY' },
+            { no: 80, name: 'HUDSON MADEGWA KHAYEBA', course: 'DIP-BIBLE & THEOLOGY' },
+            { no: 81, name: 'ALEX GITAU NJERI', course: 'DIP-BIBLE & THEOLOGY' },
+            { no: 82, name: 'NASHON MAJOR OMULI', course: 'DIP-BIBLE & THEOLOGY' },
+            { no: 83, name: 'PATRICK OSINYA OUMA', course: 'DIP-BIBLE & THEOLOGY' },
+            { no: 84, name: 'DANIEL IMOLI MAGOTSWI', course: 'DIP-BIBLE & THEOLOGY' },
+            { no: 85, name: 'CHRISTINE NAFUNA KASILI', course: 'BA PUBLIC ADMINISTRATION & GOVERNANCE' },
+            { no: 86, name: 'DENNIS WAMBUCHI', course: 'BA PUBLIC ADMINISTRATION & GOVERNANCE' },
+            { no: 87, name: 'DENNIS WEKESA SIMIYU', course: 'BA PUBLIC ADMINISTRATION & GOVERNANCE' },
+            { no: 88, name: 'JOSEPH SIMIYU WANYAMA.', course: 'BA PUBLIC ADMINISTRATION & GOVERNANCE' },
+            { no: 89, name: 'GILBERT MAMAI', course: 'DIP PUBLIC ADMINISTRATION & GOVERNANCE' },
+            { no: 90, name: 'ADELAIDE NANJALA WEKESA', course: 'LEADERSHIP & PUBLIC GOVERNANCE' },
+            { no: 91, name: 'REHEMA NASIMIYU FESA', course: 'MA PUBLIC ADMINISTRATION & GOVERNANCE' },
+            { no: 92, name: 'YVONE NANJALA WASWA', course: 'BA PUBLIC ADMINISTRATION & GOVERNANCE' },
+            { no: 93, name: 'JACKTON MULONGO CHETAMBE', course: 'MA PUBLIC ADMINISTRATION & GOVERNANCE' },
+            { no: 94, name: 'ZAKARIA WANYONYICHEKECHI', course: 'MA PUBLIC ADMINISTRATION & GOVERNANCE' },
+            { no: 95, name: 'PHILICE LUSIKE BARASA', course: 'MA PUBLIC ADMINISTRATION & GOVERNANCE' },
+            { no: 96, name: 'GODFREY SIMIYU WANJALA', course: 'MA PUBLIC ADMINISTRATION & GOVERNANCE' },
+            { no: 97, name: 'FESTUS MALELE ANJILI', course: 'MA PUBLIC ADMINISTRATION & GOVERNANCE' },
+            { no: 98, name: 'SABWAMI CAROLYNE NAFULA', course: 'MA PUBLIC ADMINISTRATION & GOVERNANCE' },
+            { no: 99, name: 'CAROLYN NAMWENYA MUCHOE', course: 'BA SOCIAL WORK & CRIMINOLOGY' },
+            { no: 100, name: 'MOURINE KHANJILA WAFULA', course: 'MA PUBLIC ADMINISTRATION & POLITICAL SCIENCE' },
+            { no: 101, name: 'MERCY NEKESA WEPUKHULU', course: 'BA PUBLIC ADMINISTRATION & GOVERNANCE' },
+            { no: 102, name: 'VALENTINE NALIAKA WOPICHO', course: 'DIPLOMA CONFLICT RESOLUTION & MANAGEMENT' },
+            { no: 103, name: 'KIRUAYE VIOLET MBAYAKI', course: 'MA IN EDUCATION PLANNING ADMINISTRATION & MANAGEMENT' },
+            { no: 104, name: 'JANE NAFULA', course: 'MA IN EDUCATION PLANNING ADMINISTRATION & MANAGEMENT' },
+            { no: 105, name: 'GLADYS NAFULA WEKUNDA', course: 'MA IN EDUCATION PLANNING ADMINISTRATION & MANAGEMENT' },
+            { no: 106, name: 'SKYTRE MUKHWANA NDALILA', course: 'MA IN EDUCATION PLANNING ADMINISTRATION & MANAGEMENT' },
+            { no: 107, name: 'LEWISLENNOX MULONGO NDALILA', course: 'MA IN EDUCATION PLANNING ADMINISTRATION & MANAGEMENT' },
+            { no: 108, name: 'EVERLYNE NEKESA SIKOLIA', course: 'MA IN EDUCATION PLANNING ADMINISTRATION & MANAGEMENT' },
+            { no: 109, name: 'DAMARIS APAMA EKIRAPA', course: 'BA CRIMINAL JUSTICE' },
+            { no: 110, name: 'ALEX NANJALA NAKOKONYA', course: 'DIP-PROJECT PLANNING' },
+            { no: 111, name: 'FEDELES  SITUMA JUMA', course: 'DEGREE- PROJECT PLANNING' },
+            { no: 112, name: 'DOUGLAS WANGILA RUCHU', course: 'BA DEGREE-LAM' },
+            { no: 113, name: 'JOSEPHINE SHIABANGA KIAGE', course: 'BA DEGREE-LAM' },
+            { no: 114, name: 'SUSY NADI WATILA', course: 'BA DEGREE-LAM' },
+            { no: 115, name: 'HILDABEDA KHAYELE LUKULU', course: 'BA DEGREE-LAM' },
+            { no: 116, name: 'WILSON IBWAGA AVUNG’ANA', course: 'BA DEGREE-LAM' },
+            { no: 117, name: 'TERESIA WANJIRU NJIHIA', course: 'BA DEGREE-LAM' },
+            { no: 118, name: 'JOSEPH MASINDE', course: 'BA DEGREE-LAM' },
+            { no: 119, name: 'EVANS ASACHA ASIRI', course: 'MA DEGREE -LAM' },
+            { no: 120, name: 'ZIPIA NABAKENI WEKATI', course: 'BA DEGREE-EDUCATION ARTS' },
+            { no: 121, name: 'CHARLES MANDEY BARASA', course: 'BA SPECIAL NEEDS' },
+            { no: 122, name: 'WANJALA MOSES', course: 'BA ARTS IN KISWAHILI / CRE' },
+            { no: 123, name: 'DORINE NASAMBU LUSAKA', course: 'BA BUSINESS ADMINISTRATION AND MANAGEMENT' },
+            { no: 124, name: 'KUKALI GEORGE SIMIYU', course: 'BA BUSINESS ADMINISTRATION AND MANAGEMENT' },
+            { no: 125, name: 'ANN YEKO CHESETO', course: 'BA EARLY CHILDHOOD EDUCATION (ECDE) & PRIMARY' },
+            { no: 126, name: 'HARRY M. SAENYI', course: 'BA EDUCATION ARTS HISTORY & KISWAHILI' },
+            { no: 127, name: 'COLLINS B. ODHIAMBO', course: 'BA EDUCATION ARTS HISTORY & KISWAHILI' },
+            { no: 128, name: 'FRED MAKASI CHESEBE', course: 'BA EDUCATION ARTS ENGLISH & KISWAHILI' },
+            { no: 129, name: 'ALEX KAPCHAN', course: 'BA EARLY CHILDHOOD EDUCATION (ECDE) & PRIMARY' },
+            { no: 130, name: 'CONSTANCE KISAKA', course: 'BA EDUCATION ARTSHISTORY & KISWAHILI' },
+            { no: 131, name: 'WANJALA DORINE', course: 'BA EDUCATION ARTSHISTORY & KISWAHILI' },
+            { no: 132, name: 'JANEROSE TOTO SHAPILI', course: 'BA EARLY CHILDHOOD EDUCATION (ECDE) & PRIMARY' },
+            { no: 133, name: 'AYUMA SAMOKA JER', course: 'BA EARLY CHILDHOOD EDUCATION (ECDE) & PRIMARY' },
+            { no: 134, name: 'BEBREN SELUYA SAM', course: 'BA EDUCATION ARTS KISWAHILI&GEOGRAPHY' },
+            { no: 135, name: 'MELISA ADONGO AKOTH', course: 'BA EARLY CHILDHOOD EDUCATION (ECDE) & PRIM' },
+            { no: 136, name: 'CATHERINE NANJALA SIBALILE', course: 'BA EARLY CHILDHOOD EDUCATION (ECDE) & PRIMARY' },
+            { no: 137, name: 'TIMOTHY MERU SITUMA', course: 'MA IN LANGUAGE & LINGUISTIC' },
+            { no: 138, name: 'BENARD WALIAULA SOITA', course: 'BA DEGREE-BIBLE & THEOLOGY' },
+            { no: 139, name: 'JOSEPH SITUMA MUSE', course: 'BA DEGREE-BIBLE & THEOLOGY' },
+            { no: 140, name: 'IGNATIUS MASIKA WASKEH', course: 'BA DEGREE-BIBLE & THEOLOGY' },
+            { no: 141, name: 'NG’OMBE WEKULO FRANK', course: 'BA DEGREE-BIBLE & THEOLOGY' },
+            { no: 142, name: 'JOSIPHATI MATISIO BUSOLO', course: 'BA DEGREE-BIBLE & THEOLOGY' },
+            { no: 143, name: 'JIM EPAINITUS LUGALIA LIDWAJI', course: 'BA DEGREE-BIBLE & THEOLOGY' },
+            { no: 144, name: 'THOMAS KIPKEMBOI CHEBET', course: 'BA DEGREE-BIBLE & THEOLOGY, DIPLOMA (2024)' },
+            { no: 145, name: 'JOAB LUSIMBO BARASA', course: 'BA DEGREE-BIBLE & THEOLOGY' },
+            { no: 146, name: 'AGREY SAVAI INDEJE', course: 'PHD-BIBLE & THEOLOGY' },
+            { no: 147, name: 'WILSON IMBWAGA ABUNG’ANA', course: 'BA DEGREE-LAM' },
+            { no: 148, name: 'NICHOLUS KHAMISI MAGAJA', course: 'PHD-BIBLE & THEOLOGY' },
+            { no: 149, name: 'JOSEPH KARIUKI', course: 'PHD-BIBLE & THEOLOGY' },
+            { no: 150, name: 'MARGARET NJAMBI', course: 'PHD-BIBLE & THEOLOGY' },
+            { no: 151, name: 'NAOMY NDEGWA', course: 'PHD-BIBLE & THEOLOGY' },
+            { no: 152, name: 'VINCENT OLULU OMANYALA', course: 'MA-PROJECT PLANNING & MANAGEMRNT' },
+            { no: 153, name: 'ALFRED LITETE ONYANGO', course: 'PHD-BIBLE & THEOLOGY' },
+            { no: 154, name: 'SAMBWAMI KENNEDY NDALILA', course: 'PHD IN LAM' },
+            // NTS-2025 Block
+            { no: 155, name: 'MAWA BAPALE DIGUDONE', course: 'DIP-BIBLE & THEOLOGY' },
+            { no: 156, name: 'MAIGEMBE SUAN', course: 'DIP-BIBLE & THEOLOGY' },
+            { no: 157, name: 'KAUDHA SYLVIA', course: 'DIP-BIBLE & THEOLOGY' },
+            { no: 158, name: 'MICAHEL SAGALA', course: 'DIP-BIBLE & THEOLOGY' },
+            { no: 159, name: 'JOSEPH ELILU', course: 'DEGREE-BIBLE & THEOLOGY' },
+            { no: 160, name: 'BETTY SANYA', course: 'DEGREE-BIBLE & THEOLOGY' },
+            { no: 161, name: 'SIMON BATWALA', course: 'DEGREE-BIBLE & THEOLOGY' },
+            { no: 162, name: 'NKERAMIHIGO GABRIEL', course: 'DEGREE-BIBLE & THEOLOGY' },
+            { no: 163, name: 'OFWONO RAPAHEL', course: 'MASTERS-BIBLE & THEOLOGY' },
+            { no: 164, name: 'KIKOMEKO GIDEON', course: 'MASTERS-BIBLE & THEOLOGY' },
+            { no: 165, name: 'MUKISA SAMUEL', course: 'MASTERS-BIBLE & THEOLOGY' },
+            { no: 166, name: 'ROMAN OKWARE', course: 'MASTERS-BIBLE & THEOLOGY' },
+            { no: 167, name: 'NAMALWA MILKA JOSEPHINE', course: 'MASTERS-BIBLE & THEOLOGY' },
+            { no: 168, name: 'NABUKONDE GORETTI', course: 'MASTERS-BIBLE & THEOLOGY' },
+            { no: 169, name: 'LAWRENCE WALUCHO MAKOKHA', course: 'MASTERS-BIBLE & THEOLOGY' },
+            { no: 170, name: 'LUCY NGIMA MARIGI', course: 'MASTERS-BIBLE & THEOLOGY' },
+            { no: 171, name: 'WILSON AKORA RUBESA', course: 'MASTERS-BIBLE & THEOLOGY' },
+            { no: 172, name: 'PATRICK MBUGUA KINYANJUI', course: 'MASTERS-BIBLE & THEOLOGY' },
+            { no: 173, name: 'ELIZABETH WANGARE KAGUNDA', course: 'MASTERS-BIBLE & THEOLOGY' },
+            { no: 174, name: 'EMMAH OBWANA', course: 'MASTERS-BIBLE & THEOLOGY' },
+            { no: 175, name: 'INVIOLATOR NASWA WALUSUNA', course: 'MASTERS-BIBLE & THEOLOGY' },
+            { no: 176, name: 'BENJAMIN WAMALWA KHAEMBA', course: 'BA-BIBLE & THEOLOGY' },
+            { no: 177, name: 'LYNN NGINA NGANGA', course: 'BA-BIBLE & THEOLOGY' },
+            { no: 178, name: 'FRED WEKESA WADABWA', course: 'DIP-BIBLE & THEOLOGY' },
+            { no: 179, name: 'IRENE CHEBUKWA KHAOYA', course: 'DIP-BIBLE & THEOLOGY' },
+            { no: 180, name: 'MUKHONGO.N.JANET', course: 'DIP-BIBLE & THEOLOGY' },
+            { no: 181, name: 'GEOFFREY JUMA WANYAMA', course: 'DIP-BIBLE & THEOLOGY' },
+            { no: 182, name: 'ALPHA ANZEZE ASWANI', course: 'DIP-BIBLE & THEOLOGY' },
+            // Data added from the document and confirmed via image
+            { no: 183, name: 'VALENTINE SIMIYU MABONGA', course: 'DIP-BIBLE & THEOLOGY' },
+            { no: 184, name: 'ROSE NASAMBU MUNUYA', course: 'DIP-BIBLE & THEOLOGY' },
+            { no: 185, name: 'GEORGE GORDEN MUTSEMBI', course: 'DIP-BIBLE & THEOLOGY' },
+            { no: 186, name: 'CHRISTOPHER AMAKOBE OMOLO', course: 'DIP-BIBLE & THEOLOGY' },
+            { no: 187, name: 'MARY MUYOKA MASINDE', course: 'BA-BIBLE & THEOLOGY' },
+            { no: 188, name: 'GEOFREY SIUNDU WAFULA', course: 'BA-BIBLE & THEOLOGY' },
+            { no: 189, name: 'MARY WANJIRU NJUGUNA', course: 'BA HUMAN RESIOURCS & SOCIAL DEVELOPMENT' },
+            { no: 190, name: 'ANN MUTHONI MURIUKI', course: 'BA HUMAN RESIOURCS & SOCIAL DEVELOPMENT' },
+            { no: 191, name: 'PETER WAFULA MUYONDO', course: 'BA-BIBLE & THEOLOGY' },
+            { no: 192, name: 'MONICAH MWASHI', course: 'DIP-BIBLE & THEOLOGY' },
+            { no: 193, name: 'MARY NJERI MWANGI', course: 'DIP-BIBLE & THEOLOGY' },
+            { no: 194, name: 'JOHN KUNGU NDIRANGU', course: 'BA-BIBLE & THEOLOGY, BA COUNSELLING PSYCHOLOGY' },
+            { no: 195, name: 'TIMOTHY MERU SITUMA', course: 'MA LINGUISTIC' },
+            { no: 196, name: 'TIMOTHY KIOKO MUTUNGA', course: 'BA LAM' },
+            { no: 197, name: 'MIRIAM KANINI', course: 'MA –ARTS KISWAHILI' },
+            { no: 198, name: 'JUDY ONGORO OMOLLO', course: 'MA –ARTS KISWAHILI' },
+            { no: 199, name: 'WAFULA MACHUMA WINNIE', course: 'MA –ARTS RELIGION' },
+            { no: 200, name: 'EVANS MUAMBU WATERA', course: 'PhD- KISWAHILI' }
 
-        // --- JAVASCRIPT LOGIC ---
-        const listContainer = document.getElementById('graduationList');
-        const searchInput = document.getElementById('searchInput');
-        const courseFilter = document.getElementById('courseFilter');
+            // Note: The total number of unique entries extracted is 200, based on the full provided list and image fragments.
+        ];
 
-        // Sort the data alphabetically by name immediately
-        graduationList.sort((a, b) => a.name.localeCompare(b.name));
+        // --- JAVASCRIPT LOGIC ---
+        const listContainer = document.getElementById('graduationList');
+        const searchInput = document.getElementById('searchInput');
+        const courseFilter = document.getElementById('courseFilter');
 
-        // Function to transform course string into a clean CSS class
-        function getLevelCssClass(course) {
-            // Cleans and normalizes the course string for use as a CSS class
-            return course.toLowerCase().replace(/[^a-z0-9]/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '');
-        }
+        // Sort the data alphabetically by name immediately
+        graduationList.sort((a, b) => a.name.localeCompare(b.name));
 
-        // Function to populate the course dropdown options
-        function populateCourseFilter() {
-            // Extract unique courses, split combined courses (e.g., 'BA-A, BA-B'), and sort
-            const allCourses = graduationList.flatMap(g => g.course.split(',').map(c => c.trim()));
-            const uniqueCourses = [...new Set(allCourses)].sort();
-            
-            uniqueCourses.forEach(course => {
-                const option = document.createElement('option');
-                option.value = course;
-                option.textContent = course;
-                courseFilter.appendChild(option);
-            });
-        }
+        // Function to transform course string into a clean CSS class
+        function getLevelCssClass(course) {
+            // Replaces spaces, slashes, ampersands, and parentheses with hyphens, then cleans up duplicates/leading/trailing hyphens.
+            return course.toLowerCase().replace(/[^a-z0-9]/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '');
+        }
 
-        // Function to group and render the list
-        function renderList(data) {
-            const groupedData = data.reduce((acc, grad) => {
-                // Handle multiple courses for one graduate (e.g., John Kungu)
-                const courses = grad.course.split(',').map(c => c.trim());
-                courses.forEach(course => {
-                    if (!acc[course]) { acc[course] = []; }
-                    acc[course].push(grad);
-                });
-                return acc;
-            }, {});
+        // Function to populate the course dropdown options
+        function populateCourseFilter() {
+            const courses = [...new Set(graduationList.map(g => g.course))].sort();
+            courses.forEach(course => {
+                const option = document.createElement('option');
+                option.value = course;
+                option.textContent = course;
+                courseFilter.appendChild(option);
+            });
+        }
 
-            let html = '';
-            
-            if (data.length === 0 && (searchInput.value || courseFilter.value)) {
-                html += `<p class="no-results">No graduates found matching your criteria. Please adjust your search or filter.</p>`;
-            } else {
-                Object.keys(groupedData).forEach(course => {
-                    // Attempt to extract level (DIP, CT, BA, MA, etc.) from the course string
-                    const parts = course.split('-');
-                    let levelAcronym = parts.length > 1 ? parts[0] : course.split(' ')[0];
-                    // Clean up the acronym
-                    if (levelAcronym.length > 4) {
-                         levelAcronym = levelAcronym.substring(0, 3).toUpperCase();
-                    } else if (levelAcronym.includes('DIPLOMA')) {
-                        levelAcronym = 'DIP';
-                    } else {
-                        levelAcronym = levelAcronym.toUpperCase();
-                    }
-                    
-                    let courseName = course.replace(levelAcronym, '').replace(/^-/, '').trim();
-                    if (!courseName) courseName = course;
-                    
-                    // Filter out duplicate entries if one graduate is listed under multiple courses
-                    const uniqueGraduates = [...new Set(groupedData[course])];
+        // Function to group and render the list
+        function renderList(data) {
+            const groupedData = data.reduce((acc, grad) => {
+                const key = grad.course;
+                if (!acc[key]) { acc[key] = []; }
+                acc[key].push(grad);
+                return acc;
+            }, {});
+
+            let html = '';
+            
+            if (data.length === 0 && (searchInput.value || courseFilter.value)) {
+                html += `<p class="no-results">No graduates found matching your criteria. Please adjust your search or filter.</p>`;
+            } else {
+                // Sort courses alphabetically for consistent rendering
+                Object.keys(groupedData).sort().forEach(course => {
+                    // Attempt to extract level (DIP, CT, BA, MA, etc.) from the course string
+                    const parts = course.split('-');
+                    let levelAcronym = parts.length > 1 ? parts[0] : course.split(' ')[0];
+                    let courseName = course.replace(levelAcronym, '').replace(/^-/, '').trim();
+                    if (!courseName) courseName = course;
+                    
+                    // Simple logic to standardize level acronyms for display
+                    if (levelAcronym.length > 4) {
+                        if (levelAcronym.startsWith('DIP')) {
+                            levelAcronym = 'DIP';
+                            courseName = course.replace('DIP-', '').trim();
+                        } else if (levelAcronym.startsWith('BA')) {
+                            levelAcronym = 'BA';
+                            courseName = course.replace('BA', '').trim();
+                        } else if (levelAcronym.startsWith('MA')) {
+                            levelAcronym = 'MA';
+                            courseName = course.replace('MA', '').trim();
+                        } else if (levelAcronym.startsWith('CT')) {
+                            levelAcronym = 'CT';
+                            courseName = course.replace('CT-', '').trim();
+                        } else if (levelAcronym.startsWith('DEGREE')) {
+                            levelAcronym = 'DEGREE';
+                            courseName = course.replace('DEGREE-', '').trim();
+                        } else if (levelAcronym.startsWith('PHD')) {
+                            levelAcronym = 'PHD';
+                            courseName = course.replace('PHD-', '').trim();
+                        } else if (levelAcronym.startsWith('MASTERS')) {
+                            levelAcronym = 'MASTERS';
+                            courseName = course.replace('MASTERS-', '').trim();
+                        }
+                    }
 
 
-                    html += `<div class="course-section">
-                        <h2>
-                            ${courseName} 
-                            <span class="level-count">${levelAcronym} | ${uniqueGraduates.length} Graduates</span>
-                        </h2>
-                        <table class="graduates-table">
-                            <thead><tr><th>No.</th><th>Name</th></tr></thead>
-                            <tbody>`;
-                    
-                    uniqueGraduates.forEach((grad, index) => {
-                        const cssClass = getLevelCssClass(course);
-                        html += `<tr>
-                            <td>${index + 1}</td>
-                            <td>
-                                <strong>${grad.name}</strong> 
-                                <span class="level-badge ${cssClass}">${levelAcronym}</span>
-                            </td>
-                        </tr>`;
-                    });
+                    html += `<div class="course-section">
+                        <h2>
+                            ${courseName} 
+                            <span class="level-count">${levelAcronym} | ${groupedData[course].length} Graduates</span>
+                        </h2>
+                        <table class="graduates-table">
+                            <thead><tr><th>No.</th><th>Name</th></tr></thead>
+                            <tbody>`;
+                    
+                    groupedData[course].forEach((grad, index) => {
+                        const cssClass = getLevelCssClass(grad.course);
+                        html += `<tr>
+                            <td>${index + 1}</td>
+                            <td>
+                                <strong>${grad.name}</strong> 
+                                <span class="level-badge ${cssClass}">${levelAcronym}</span>
+                            </td>
+                        </tr>`;
+                    });
 
-                    html += `</tbody></table></div>`;
-                });
-            }
+                    html += `</tbody></table></div>`;
+                });
+            }
 
-            listContainer.innerHTML = html;
-        }
-        
-        // Main filter function triggered by input/dropdown change
-        function filterAndRender() {
-            const searchQuery = searchInput.value.toLowerCase();
-            const courseValue = courseFilter.value;
+            listContainer.innerHTML = html;
+        }
+        
+        // Main filter function triggered by input/dropdown change
+        function filterAndRender() {
+            const searchQuery = searchInput.value.toLowerCase();
+            const courseValue = courseFilter.value;
 
-            const filteredData = graduationList.filter(grad => {
-                const matchesSearch = grad.name.toLowerCase().includes(searchQuery) ||
-                                      grad.course.toLowerCase().includes(searchQuery);
-                
-                // If courseValue is set, we need to check if ANY of the graduate's courses match
-                const matchesCourse = courseValue === "" || grad.course.split(',').map(c => c.trim()).includes(courseValue);
-                
-                return matchesSearch && matchesCourse;
-            });
+            const filteredData = graduationList.filter(grad => {
+                const matchesSearch = grad.name.toLowerCase().includes(searchQuery) ||
+                                      grad.course.toLowerCase().includes(searchQuery);
+                
+                const matchesCourse = courseValue === "" || grad.course === courseValue;
+                
+                return matchesSearch && matchesCourse;
+            });
+            
+            // Render the filtered list
+            renderList(filteredData);
+        }
 
-            renderList(filteredData);
-        }
+        // --- INITIALIZATION AND EVENT LISTENERS ---
+        populateCourseFilter();
+        renderList(graduationList); // Initial render
 
-        // Attach event listeners
-        searchInput.addEventListener('input', filterAndRender);
-        courseFilter.addEventListener('change', filterAndRender);
-
-        // Initial setup and render
-        populateCourseFilter();
-        filterAndRender(); 
-
-    </script>
+        searchInput.addEventListener('keyup', filterAndRender);
+        courseFilter.addEventListener('change', filterAndRender);
+    </script>
 </body>
 </html>
