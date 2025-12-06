@@ -6,15 +6,17 @@
     <title>NORTHWESTERN TRAINING INSTITUTE - List of Graduating Students</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300,400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     
     <style>
-        /* 2. MODERN BASE STYLES */
+        /* Modern Base Styles */
         :root {
             --primary-color: #2c698d; /* Professional Blue/Teal */
             --header-color: #1e3a5f;
             --background-light: #f9fbfd;
             --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.08);
             --shadow-medium: 0 6px 15px rgba(0, 0, 0, 0.1);
+            --highlight-color: #ffc107; /* Yellow for search highlight */
         }
 
         body {
@@ -33,7 +35,7 @@
             border-radius: 12px;
         }
         
-        /* Logo Styling - Retained */
+        /* Logo Styling */
         .logo-container {
             text-align: center;
             margin-bottom: 10px;
@@ -52,22 +54,51 @@
             border-bottom: 4px solid var(--primary-color);
             padding-bottom: 10px;
             font-weight: 700;
+            /* **TEXT SHADOW IDEA** */
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        .title-group {
+            text-align: center;
+            margin-bottom: 30px;
         }
         h2 {
-            text-align: center;
+            display: inline-block;
             color: #7f8c8d;
             font-size: 1.3em;
-            margin-top: 0;
-            margin-bottom: 30px;
+            margin: 0 10px 0 0;
             font-weight: 300;
         }
+
+        /* **NEW: Total Graduates Badge Styling** */
+        .total-badge {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 1em;
+            font-weight: 700;
+            vertical-align: top;
+            margin-top: 5px;
+        }
         
-        /* 3. MODERN CONTROLS */
+        /* **NEW: STICKY CONTROLS** */
+        .controls-wrapper {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            background-color: var(--background-light);
+            padding: 15px 0;
+            margin: 0 -30px; /* Counter container padding */
+            padding-left: 30px;
+            padding-right: 30px;
+            border-bottom: 1px solid #ddd;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
         .controls {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 25px;
             gap: 15px;
         }
         .controls input, .controls select {
@@ -91,7 +122,7 @@
             cursor: pointer;
         }
         
-        /* 4. STYLISH TABLE */
+        /* Stylish Table */
         table {
             width: 100%;
             border-collapse: separate;
@@ -99,7 +130,7 @@
             margin-top: 20px;
             background-color: #fff;
             border-radius: 8px;
-            overflow: hidden; /* Ensures rounded corners clip content */
+            overflow: hidden;
         }
         th, td {
             border: none;
@@ -113,8 +144,17 @@
             text-transform: uppercase;
             letter-spacing: 0.5px;
             border-bottom: 3px solid #1e3a5f;
+            cursor: pointer; /* Indicate sortability */
         }
-        /* Table Body Rows */
+        th i {
+            margin-left: 8px;
+            font-size: 0.8em;
+            opacity: 0.7;
+            transition: opacity 0.3s;
+        }
+        th.sorted i {
+            opacity: 1;
+        }
         tr:nth-child(even) {
             background-color: #f4f6f8;
         }
@@ -130,54 +170,38 @@
             font-weight: 700;
             color: #555;
         }
-        
-        /* 5. COURSE LEVEL COLOR CLASSES (Dynamic Highlighting) */
-        .level-phd {
-            color: #C0392B; /* Dark Red */
+
+        /* **NEW: Search Highlight** */
+        .highlight {
+            background-color: var(--highlight-color);
+            padding: 2px 0;
+            border-radius: 2px;
             font-weight: 700;
-            background-color: #fcecec;
-            border-radius: 4px;
-            padding: 5px 10px;
-            display: inline-block;
+        }
+        
+        /* Course Level Color Classes (Dynamic Highlighting - retained) */
+        .level-phd {
+            color: #C0392B; font-weight: 700; background-color: #fcecec; border-radius: 4px; padding: 5px 10px; display: inline-block;
         }
         .level-masters {
-            color: #F39C12; /* Gold/Orange */
-            font-weight: 700;
-            background-color: #fdf5e6;
-            border-radius: 4px;
-            padding: 5px 10px;
-            display: inline-block;
+            color: #F39C12; font-weight: 700; background-color: #fdf5e6; border-radius: 4px; padding: 5px 10px; display: inline-block;
         }
         .level-diploma {
-            color: #3498db; /* Teal/Blue */
-            font-weight: 700;
-            background-color: #eaf3fb;
-            border-radius: 4px;
-            padding: 5px 10px;
-            display: inline-block;
+            color: #3498db; font-weight: 700; background-color: #eaf3fb; border-radius: 4px; padding: 5px 10px; display: inline-block;
         }
         .level-bachelors {
-            color: #27AE60; /* Forest Green */
-            font-weight: 700;
-            background-color: #eaf7ee;
-            border-radius: 4px;
-            padding: 5px 10px;
-            display: inline-block;
+            color: #27AE60; font-weight: 700; background-color: #eaf7ee; border-radius: 4px; padding: 5px 10px; display: inline-block;
         }
         .level-certificate {
-            color: #9B59B6; /* Purple */
-            font-weight: 700;
-            background-color: #f7ebfb;
-            border-radius: 4px;
-            padding: 5px 10px;
-            display: inline-block;
+            color: #9B59B6; font-weight: 700; background-color: #f7ebfb; border-radius: 4px; padding: 5px 10px; display: inline-block;
         }
 
-        /* 6. Responsive Design (Retained, but enhanced) */
+        /* Responsive Design */
         @media screen and (max-width: 768px) {
-            .container {
-                padding: 15px;
-                margin: 15px auto;
+            .controls-wrapper {
+                padding-left: 15px;
+                padding-right: 15px;
+                margin: 0 -15px;
             }
             .controls {
                 flex-direction: column;
@@ -235,21 +259,33 @@
         </div>
         
         <h1>NORTHWESTERN TRAINING INSTITUTE</h1>
-        <h2>List of Graduating Students (Total: 201 Entries)</h2>
+        
+        <div class="title-group">
+            <h2>List of Graduating Students</h2>
+            <span id="totalBadge" class="total-badge">Total: 201</span>
+        </div>
 
-        <div class="controls">
-            <input type="text" id="searchInput" placeholder="Search by Name or Course..." onkeyup="filterTable()">
-            <select id="courseFilter" onchange="filterTable()">
-                <option value="">All Courses</option>
-            </select>
+        <div class="controls-wrapper">
+            <div class="controls">
+                <input type="text" id="searchInput" placeholder="Search by Name or Course..." onkeyup="filterTable()">
+                <select id="courseFilter" onchange="filterTable()">
+                    <option value="">All Courses</option>
+                </select>
+            </div>
         </div>
         
         <table id="enrollmentTable">
             <thead>
                 <tr>
                     <th>NO.</th>
-                    <th>Name</th>
-                    <th>Course/Level</th>
+                    
+                    <th id="headerName" onclick="sortTable(1)" data-sort-dir="asc" class="sortable">
+                        Name <i class="fas fa-sort-up" style="display:none;"></i>
+                    </th>
+                    
+                    <th id="headerCourse" onclick="sortTable(2)" data-sort-dir="asc" class="sortable">
+                        Course/Level <i class="fas fa-sort-up" style="display:none;"></i>
+                    </th>
                 </tr>
             </thead>
             <tbody>
@@ -258,7 +294,8 @@
     </div>
 
     <script>
-        const enrollmentData = [
+        // Store the original data and the currently sorted data
+        let enrollmentData = [
             { no: 1, name: 'KOCHARA PETER LOTIANG', course: 'DIP-BIBLE & THEOLOGY' },
             { no: 2, name: 'BOAZ ASICHE MUTEKWA', course: 'DIP-BIBLE & THEOLOGY' },
             { no: 3, name: 'STELA NABWILE SIMIYU', course: 'DIP-BIBLE & THEOLOGY' },
@@ -462,9 +499,20 @@
             { no: 201, name: 'JANE DOE', course: 'DIP-BIBLE & THEOLOGY' } 
         ];
 
+        let currentSortedData = [...enrollmentData]; // Data currently rendered/filtered
         const tableBody = document.querySelector('#enrollmentTable tbody');
+        const totalBadge = document.getElementById('totalBadge');
+        const searchInput = document.getElementById('searchInput');
+        const courseFilter = document.getElementById('courseFilter');
+        
+        // --- Highlighting Logic ---
+        function highlightText(text, search) {
+            if (!search) return text;
+            const regex = new RegExp(search.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&'), 'gi');
+            return text.replace(regex, (match) => `<span class="highlight">${match}</span>`);
+        }
 
-        // Helper function to get the CSS class based on course name
+        // --- Course Level Classification Logic ---
         function getLevelClass(courseName) {
             const course = courseName.toUpperCase();
             if (course.includes('PHD')) return 'level-phd';
@@ -472,12 +520,14 @@
             if (course.includes('DIP') || course.includes('DIPLOMA')) return 'level-diploma';
             if (course.includes('BA') || course.includes('DEGREE')) return 'level-bachelors';
             if (course.includes('CT')) return 'level-certificate';
-            return ''; // Default class
+            return ''; 
         }
 
-        // Function to render the table 
+        // --- Table Rendering Logic ---
         function renderTable(data) {
             tableBody.innerHTML = ''; 
+            const search = searchInput.value.trim();
+
             data.forEach(student => {
                 const row = tableBody.insertRow();
                 const levelClass = getLevelClass(student.course);
@@ -487,53 +537,100 @@
                 cellNo.setAttribute('data-label', 'NO.');
 
                 let cellName = row.insertCell();
-                cellName.textContent = student.name;
+                cellName.innerHTML = highlightText(student.name, search);
                 cellName.setAttribute('data-label', 'Name');
 
-                // Apply dynamic color class to the Course/Level cell
                 let cellCourse = row.insertCell();
-                cellCourse.innerHTML = `<span class="${levelClass}">${student.course}</span>`;
+                cellCourse.innerHTML = `<span class="${levelClass}">${highlightText(student.course, search)}</span>`;
                 cellCourse.setAttribute('data-label', 'Course/Level');
             });
+
+            // Update the total badge with the filtered count
+            totalBadge.textContent = `Total: ${data.length}`;
         }
 
-        // Function to populate the Course Filter dropdown
+        // --- Course Filter Logic ---
         function populateCourseFilter() {
             const courses = [...new Set(enrollmentData.map(item => item.course))];
-            const filterDropdown = document.getElementById('courseFilter');
-
             courses.sort().forEach(course => {
                 const option = document.createElement('option');
                 option.value = course;
                 option.textContent = course;
-                filterDropdown.appendChild(option);
+                courseFilter.appendChild(option);
             });
         }
 
-        // Function to handle Search and Filter logic
         function filterTable() {
-            const searchInput = document.getElementById('searchInput').value.toLowerCase();
-            const courseFilterValue = document.getElementById('courseFilter').value;
+            const search = searchInput.value.toLowerCase().trim();
+            const courseFilterValue = courseFilter.value;
 
             const filteredData = enrollmentData.filter(student => {
-                // 1. Check Course Filter
                 const courseMatch = courseFilterValue === "" || student.course === courseFilterValue;
-
-                // 2. Check Search Input
+                
                 const searchMatch = 
-                    student.name.toLowerCase().includes(searchInput) ||
-                    student.course.toLowerCase().includes(searchInput);
+                    student.name.toLowerCase().includes(search) ||
+                    student.course.toLowerCase().includes(search);
 
                 return courseMatch && searchMatch;
             });
 
-            renderTable(filteredData);
+            currentSortedData = filteredData;
+            renderTable(currentSortedData);
         }
 
-        // Initialize the table and filter when the page loads
+        // --- Sorting Logic ---
+        function updateSortIndicators(columnIndex, direction) {
+            const headers = document.querySelectorAll('#enrollmentTable th.sortable');
+            headers.forEach((header, index) => {
+                const icon = header.querySelector('i');
+                if (index === columnIndex - 1) {
+                    header.classList.add('sorted');
+                    icon.style.display = 'inline-block';
+                    icon.className = direction === 'asc' ? 'fas fa-sort-up' : 'fas fa-sort-down';
+                } else {
+                    header.classList.remove('sorted');
+                    icon.style.display = 'none';
+                    icon.className = 'fas fa-sort-up'; // Reset icon for others
+                }
+            });
+        }
+
+        function sortTable(columnIndex) {
+            const header = document.querySelectorAll('#enrollmentTable th')[columnIndex];
+            const property = columnIndex === 1 ? 'name' : 'course';
+            let direction = header.getAttribute('data-sort-dir') === 'asc' ? 'desc' : 'asc';
+
+            currentSortedData.sort((a, b) => {
+                const aVal = a[property].toUpperCase();
+                const bVal = b[property].toUpperCase();
+                let comparison = 0;
+                
+                if (aVal > bVal) comparison = 1;
+                else if (aVal < bVal) comparison = -1;
+
+                return direction === 'asc' ? comparison : comparison * -1;
+            });
+
+            // Update header state and indicators
+            header.setAttribute('data-sort-dir', direction);
+            updateSortIndicators(columnIndex, direction);
+
+            // Re-render the table with sorted data
+            renderTable(currentSortedData);
+        }
+        
+        // --- Initialization ---
         document.addEventListener('DOMContentLoaded', () => {
+            // Initial render
             renderTable(enrollmentData);
             populateCourseFilter();
+
+            // Set initial sort state for the sortable headers
+            document.getElementById('headerName').innerHTML += '<i class="fas fa-sort" style="display:inline-block; opacity:0.7;"></i>';
+            document.getElementById('headerCourse').innerHTML += '<i class="fas fa-sort" style="display:inline-block; opacity:0.7;"></i>';
+            
+            // Remove the default 'fa-sort-up' from the th element to avoid double icons
+            document.querySelectorAll('#enrollmentTable th i.fa-sort-up').forEach(icon => icon.remove());
         });
     </script>
 
