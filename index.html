@@ -3,239 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NORTHWESTERN TRAINING INSTITUTE - List of Graduating Students</title>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300,400,700&display=swap" rel="stylesheet">
-    
-    <style>
-        /* 2. MODERN BASE STYLES */
-        :root {
-            --primary-color: #2c698d; /* Professional Blue/Teal */
-            --header-color: #1e3a5f;
-            --background-light: #f9fbfd;
-            --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.08);
-            --shadow-medium: 0 6px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        body {
-            font-family: 'Roboto', Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: var(--background-light);
-        }
-        .container {
-            width: 95%;
-            max-width: 1400px;
-            margin: 30px auto;
-            background-color: #fff;
-            padding: 30px;
-            box-shadow: var(--shadow-medium);
-            border-radius: 12px;
-        }
-        
-        /* Logo Styling - Works correctly when controls are NOT sticky */
-        .logo-container {
-            text-align: center;
-            margin-bottom: 10px;
-        }
-        .logo {
-            max-width: 120px;
-            height: auto;
-            display: block;
-            margin: 0 auto;
-        }
-        
-        h1 {
-            text-align: center;
-            color: var(--header-color);
-            margin-bottom: 5px;
-            border-bottom: 4px solid var(--primary-color);
-            padding-bottom: 10px;
-            font-weight: 700;
-        }
-        h2 {
-            text-align: center;
-            color: #7f8c8d;
-            font-size: 1.3em;
-            margin-top: 0;
-            margin-bottom: 30px;
-            font-weight: 300;
-        }
-        
-        /* 3. MODERN CONTROLS (NOT sticky) */
-        .controls {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 25px;
-            gap: 15px;
-        }
-        .controls input, .controls select {
-            padding: 12px 15px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            font-size: 16px;
-            box-shadow: var(--shadow-light);
-            transition: all 0.3s ease;
-        }
-        .controls input:focus, .controls select:focus {
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 3px rgba(44, 105, 141, 0.2);
-            outline: none;
-        }
-        .controls input {
-            flex-grow: 1;
-        }
-        .controls select {
-            width: 250px; 
-            cursor: pointer;
-        }
-        
-        /* 4. STYLISH TABLE */
-        table {
-            width: 100%;
-            border-collapse: separate;
-            border-spacing: 0;
-            margin-top: 20px;
-            background-color: #fff;
-            border-radius: 8px;
-            overflow: hidden; 
-        }
-        th, td {
-            border: none;
-            padding: 15px 20px;
-            text-align: left;
-        }
-        th {
-            background-color: var(--primary-color);
-            color: white;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            border-bottom: 3px solid #1e3a5f;
-        }
-        /* Table Body Rows */
-        tr:nth-child(even) {
-            background-color: #f4f6f8;
-        }
-        tr:hover {
-            background-color: #e8f5ff;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-            transform: scale(1.005);
-            transition: all 0.15s ease-in-out;
-        }
-        td:nth-child(1) {
-            text-align: center;
-            width: 50px;
-            font-weight: 700;
-            color: #555;
-        }
-        
-        /* 5. COURSE LEVEL COLOR CLASSES (Dynamic Highlighting) */
-        .level-phd {
-            color: #C0392B; /* Dark Red */
-            font-weight: 700;
-            background-color: #fcecec;
-            border-radius: 4px;
-            padding: 5px 10px;
-            display: inline-block;
-        }
-        .level-masters {
-            color: #F39C12; /* Gold/Orange */
-            font-weight: 700;
-            background-color: #fdf5e6;
-            border-radius: 4px;
-            padding: 5px 10px;
-            display: inline-block;
-        }
-        .level-diploma {
-            color: #3498db; /* Teal/Blue */
-            font-weight: 700;
-            background-color: #eaf3fb;
-            border-radius: 4px;
-            padding: 5px 10px;
-            display: inline-block;
-        }
-        .level-bachelors {
-            color: #27AE60; /* Forest Green */
-            font-weight: 700;
-            background-color: #eaf7ee;
-            border-radius: 4px;
-            padding: 5px 10px;
-            display: inline-block;
-        }
-        .level-certificate {
-            color: #9B59B6; /* Purple */
-            font-weight: 700;
-            background-color: #f7ebfb;
-            border-radius: 4px;
-            padding: 5px 10px;
-            display: inline-block;
-        }
-
-        /* 6. Responsive Design */
-        @media screen and (max-width: 768px) {
-            .container {
-                padding: 15px;
-                margin: 15px auto;
-            }
-            .controls {
-                flex-direction: column;
-            }
-            .controls input, .controls select {
-                width: 100%;
-                margin-bottom: 10px;
-            }
-            table, thead, tbody, th, td, tr {
-                display: block;
-            }
-            thead tr {
-                position: absolute;
-                top: -9999px;
-                left: -9999px;
-            }
-            tr {
-                border: 1px solid #ccc;
-                margin-bottom: 15px;
-                border-radius: 8px;
-                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            }
-            td {
-                border: none;
-                border-bottom: 1px solid #eee;
-                position: relative;
-                padding-left: 55%;
-                text-align: right;
-            }
-            td:before {
-                position: absolute;
-                top: 50%;
-                left: 10px;
-                width: 45%;
-                padding-right: 10px;
-                white-space: nowrap;
-                content: attr(data-label);
-                font-weight: bold;
-                color: #555;
-                transform: translateY(-50%);
-                text-align: left;
-            }
-            td:nth-child(1) {
-                text-align: right;
-                padding-left: 55%;
-            }
-        }
-    </style>
+    <title>NORTH WESTERN CHRISTIAN TRAINING INSTITUTE - Enrollment List (214 Graduates)</title>
+    <link rel="stylesheet" href="style.css"> 
 </head>
 <body>
 
     <div class="container">
         <div class="logo-container">
-            <img src="logo.png" alt="NORTHWESTERN TRAINING INSTITUTE Logo" class="logo">
+            <img src="logo.png" alt="NORTH WESTERN CHRISTIAN TRAINING INSTITUTE Logo" class="logo">
         </div>
         
-        <h1>NORTHWESTERN TRAINING INSTITUTE</h1>
-        <h2>List of Graduating Students (Total: 201 Entries)</h2>
+        <h1>NORTH WESTERN CHRISTIAN TRAINING INSTITUTE</h1>
+        <h2>Student Enrollment List (Total: 214 Entries)</h2>
 
         <div class="controls">
             <input type="text" id="searchInput" placeholder="Search by Name or Course..." onkeyup="filterTable()">
@@ -459,28 +238,31 @@
             { no: 198, name: 'JUDY ONGORO OMOLLO', course: 'MA –ARTS KISWAHILI' },
             { no: 199, name: 'WAFULA MACHUMA WINNIE', course: 'MA –ARTS RELIGION' },
             { no: 200, name: 'EVANS MUAMBU WATERA', course: 'PhD- KISWAHILI' },
-            { no: 201, name: 'JANE DOE', course: 'DIP-BIBLE & THEOLOGY' } 
+            { no: 201, name: 'JANE DOE', course: 'DIP-BIBLE & THEOLOGY' },
+            
+            /* --- NEW GRADUATES ADDED BELOW (202 - 214) --- */
+            { no: 202, name: 'JEREMIAH OCHIENG OMONDI', course: 'MA-COUNSELING PSYCHOLOGY' },
+            { no: 203, name: 'LUCY NGIMA MARIGI', course: 'MA-LEADERSHIP & ADMINISTRATION' },
+            { no: 204, name: 'GABRIEL NAMISI WAFULA', course: 'BA DEGREE' },
+            { no: 205, name: 'MICHAEL CHESOLI KHEAMBA', course: 'MA DEGREE' },
+            { no: 206, name: 'CHARLES INGOLAN KAAMAN', course: 'DIPLOMA' },
+            { no: 207, name: 'VALENTINE NEKESA WASWA', course: 'DIPLOMA' },
+            { no: 208, name: 'BENARD WABWILE KHAOYA', course: 'BACHELORS DEGREE' },
+            { no: 209, name: 'JOHN NJALA CHEGE', course: 'BA-BIBLE & THEOLOGY' },
+            { no: 210, name: 'MIRIAM KANINI', course: 'MA-ARTS KISWAHILI' },
+            { no: 211, name: 'JUDY ONKORO OMOLLO', course: 'MA-ARTS KISWAHILI' },
+            { no: 212, name: 'WAFULA MACHUMA WINNIE', course: 'MA-ARTS' },
+            { no: 213, name: 'EVANS MWAMBU WATELA', course: 'PHD-KISWAHILI' },
+            { no: 214, name: 'JOHN NJAU CHARGE', course: 'BA DEGREE-BIBLE & THEOLOGY' }
         ];
 
         const tableBody = document.querySelector('#enrollmentTable tbody');
 
-        // Helper function to get the CSS class based on course name
-        function getLevelClass(courseName) {
-            const course = courseName.toUpperCase();
-            if (course.includes('PHD')) return 'level-phd';
-            if (course.includes('MA') || course.includes('MASTERS')) return 'level-masters';
-            if (course.includes('DIP') || course.includes('DIPLOMA')) return 'level-diploma';
-            if (course.includes('BA') || course.includes('DEGREE')) return 'level-bachelors';
-            if (course.includes('CT')) return 'level-certificate';
-            return ''; // Default class
-        }
-
         // Function to render the table 
         function renderTable(data) {
-            tableBody.innerHTML = ''; 
+            tableBody.innerHTML = ''; // Clear existing rows
             data.forEach(student => {
                 const row = tableBody.insertRow();
-                const levelClass = getLevelClass(student.course);
                 
                 let cellNo = row.insertCell();
                 cellNo.textContent = student.no;
@@ -490,9 +272,8 @@
                 cellName.textContent = student.name;
                 cellName.setAttribute('data-label', 'Name');
 
-                // Apply dynamic color class to the Course/Level cell
                 let cellCourse = row.insertCell();
-                cellCourse.innerHTML = `<span class="${levelClass}">${student.course}</span>`;
+                cellCourse.textContent = student.course;
                 cellCourse.setAttribute('data-label', 'Course/Level');
             });
         }
@@ -509,6 +290,28 @@
                 filterDropdown.appendChild(option);
             });
         }
+
+        // Function to handle Scroll-based color change (NEW FUNCTION)
+        function handleScroll() {
+            const scrollPosition = window.scrollY;
+            const body = document.body;
+            
+            // Defines scroll checkpoints. Adjust the pixel values (500, 1500, 2500) if you want the colors to change more or less frequently.
+            if (scrollPosition < 500) {
+                // Theme 1 (Default)
+                body.className = ''; 
+            } else if (scrollPosition >= 500 && scrollPosition < 1500) {
+                // Theme 2: Applies .color-theme-2 class
+                body.className = 'color-theme-2'; 
+            } else if (scrollPosition >= 1500 && scrollPosition < 2500) {
+                // Theme 3: Applies .color-theme-3 class
+                body.className = 'color-theme-3';
+            } else {
+                // Theme 4: Applies .color-theme-4 class
+                body.className = 'color-theme-4'; 
+            }
+        }
+        // END NEW FUNCTION
 
         // Function to handle Search and Filter logic
         function filterTable() {
@@ -534,7 +337,12 @@
         document.addEventListener('DOMContentLoaded', () => {
             renderTable(enrollmentData);
             populateCourseFilter();
+            // Run the scroll handler once on load to set the initial color
+            handleScroll(); 
         });
+
+        // Attach the scroll handler to the window scroll event (NEW)
+        window.onscroll = handleScroll;
     </script>
 
 </body>

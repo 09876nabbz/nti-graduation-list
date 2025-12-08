@@ -1,0 +1,162 @@
+/* New Vibrant Styles */
+body {
+    font-family: 'Verdana', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f3e5f5; /* Theme 1: Light Lavender (Default) */
+    /* NEW: Add a smooth transition for color changes */
+    transition: background-color 0.8s ease-in-out;
+}
+
+/* NEW SCROLL COLOR THEMES */
+.color-theme-2 {
+    background-color: #e0f7fa; /* Theme 2: Light Cyan */
+}
+.color-theme-3 {
+    background-color: #fff3e0; /* Theme 3: Light Peach/Orange */
+}
+.color-theme-4 {
+    background-color: #e8f5e9; /* Theme 4: Light Mint Green */
+}
+/* END NEW SCROLL COLOR THEMES */
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 20px auto;
+    background-color: #ffffff;
+    padding: 25px;
+    box-shadow: 0 10px 20px rgba(74, 20, 140, 0.2); /* Deep Purple Shadow */
+    border-radius: 12px;
+    border: 2px solid #9c27b0; /* Vibrant Purple Border */
+}
+/* Logo Styling */
+.logo-container {
+    text-align: center;
+    margin-bottom: 10px;
+}
+.logo {
+    max-width: 120px; 
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+h1 {
+    text-align: center;
+    color: #4a148c; /* Dark Purple */
+    margin-bottom: 5px;
+    border-bottom: 4px solid #ce93d8; /* Light Purple Separator */
+    padding-bottom: 15px;
+    font-size: 2.5em;
+}
+h2 {
+    text-align: center;
+    color: #8e24aa; /* Medium Purple */
+    font-size: 1.4em;
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+.controls {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+    gap: 15px;
+}
+.controls input, .controls select {
+    padding: 12px;
+    border: 2px solid #ce93d8;
+    border-radius: 8px;
+    font-size: 16px;
+    background-color: #f7f3f9;
+    transition: border-color 0.3s;
+}
+.controls input:focus, .controls select:focus {
+     border-color: #4a148c;
+}
+.controls input {
+    flex-grow: 1;
+}
+.controls select {
+    width: 250px; 
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 25px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+th, td {
+    border: 1px solid #e1bee7; /* Very Light Purple Border */
+    padding: 14px 18px;
+    text-align: left;
+}
+th {
+    background-color: #4a148c; /* Table Header Dark Purple */
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+tr:nth-child(even) {
+    background-color: #fce4ec; /* Pinkish Alternate Row */
+}
+tr:hover {
+    background-color: #e1bee7; /* Hover Light Purple */
+    cursor: default;
+}
+td:nth-child(1) {
+    text-align: center;
+    width: 50px;
+    font-weight: bold;
+    color: #4a148c;
+}
+
+/* Responsive Design (Vibrant Updates) */
+@media screen and (max-width: 768px) {
+    .controls {
+        flex-direction: column;
+    }
+    .controls input, .controls select {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    table, thead, tbody, th, td, tr {
+        display: block;
+    }
+    thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+    tr {
+        border: 2px solid #9c27b0; /* Stronger mobile border */
+        margin-bottom: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    }
+    td {
+        border: none;
+        border-bottom: 1px solid #e1bee7;
+        position: relative;
+        padding-left: 55%; /* Increased padding for label */
+        text-align: right;
+    }
+    td:before {
+        position: absolute;
+        top: 50%;
+        left: 10px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        content: attr(data-label);
+        font-weight: bold;
+        color: #8e24aa; /* Mobile label color */
+        transform: translateY(-50%);
+        text-align: left;
+    }
+    td:nth-child(1) {
+        text-align: right;
+        padding-left: 55%;
+    }
+}
