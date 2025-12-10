@@ -7,7 +7,19 @@
     <link rel="stylesheet" href="style.css"> 
 </head>
 <body>
-
+    
+    <div id="login-screen">
+        <div class="login-box">
+            <div class="logo-login-container">
+                <img src="logo.png" alt="NORTH WESTERN CHRISTIAN TRAINING INSTITUTE Logo" class="logo-login">
+            </div>
+            <h2>Welcome to NORTH WESTERN!</h2>
+            <p>Please enter your name below to view the enrollment list.</p>
+            <input type="text" id="userNameInput" placeholder="Enter Your Name" required>
+            <button onclick="handleLogin()">VIEW LIST</button>
+            <p id="welcome-message" style="display:none;"></p>
+        </div>
+    </div>
     <div class="container">
         <div class="logo-container">
             <img src="logo.png" alt="NORTH WESTERN CHRISTIAN TRAINING INSTITUTE Logo" class="logo">
@@ -240,7 +252,6 @@
             { no: 200, name: 'EVANS MUAMBU WATERA', course: 'PhD- KISWAHILI' },
             { no: 201, name: 'JANE DOE', course: 'DIP-BIBLE & THEOLOGY' },
             
-            /* --- PREVIOUSLY ADDED GRADUATES --- */
             { no: 202, name: 'JEREMIAH OCHIENG OMONDI', course: 'MA-COUNSELING PSYCHOLOGY' },
             { no: 203, name: 'LUCY NGIMA MARIGI', course: 'MA-LEADERSHIP & ADMINISTRATION' },
             { no: 204, name: 'GABRIEL NAMISI WAFULA', course: 'BA DEGREE' },
@@ -255,7 +266,7 @@
             { no: 213, name: 'EVANS MWAMBU WATELA', course: 'PHD-KISWAHILI' },
             { no: 214, name: 'JOHN NJAU CHEGE', course: 'BA DEGREE-BIBLE & THEOLOGY' },
 
-            /* --- NEW ADDITIONS AND CORRECTIONS (215 - 220) --- */
+            /* --- NEW ADDITIONS (Total 220) --- */
             { no: 215, name: 'JEREMIAH EKITELA LOKINYI', course: 'DIPLOMA' },
             { no: 216, name: 'JORAM KIMOI WACHAHI', course: 'DIPLOMA' },
             { no: 217, name: 'BETH WANJIRU GICHU', course: 'CERT' },
@@ -265,8 +276,36 @@
         ];
 
         const tableBody = document.querySelector('#enrollmentTable tbody');
+        const loginScreen = document.getElementById('login-screen');
+        const container = document.querySelector('.container');
+        const welcomeMessage = document.getElementById('welcome-message');
 
-        // NEW: Debounce function to limit how often a function runs (improves performance)
+        // Function to handle the login
+        function handleLogin() {
+            const userName = document.getElementById('userNameInput').value.trim();
+            
+            if (userName === "") {
+                alert("Please enter your name to proceed.");
+                return;
+            }
+
+            // 1. Show the welcome message
+            welcomeMessage.textContent = `Congratulations, ${userName}! Welcome.`;
+            welcomeMessage.style.display = 'block';
+
+            // 2. Hide the input and button
+            document.getElementById('userNameInput').style.display = 'none';
+            document.querySelector('.login-box button').style.display = 'none';
+
+            // 3. Wait a moment, then transition to the main page
+            setTimeout(() => {
+                loginScreen.classList.add('hidden'); // Fade out login screen
+                container.classList.add('visible'); // Fade in main content
+                window.scrollTo(0, 0); // Reset scroll position 
+            }, 1500); // 1.5 second delay
+        }
+        
+        // Debounce function to limit how often a function runs (improves performance)
         function debounce(func, delay) {
             let timeoutId;
             return function(...args) {
@@ -276,7 +315,6 @@
                 }, delay);
             };
         }
-        // END NEW FUNCTION
 
         // Function to render the table 
         function renderTable(data) {
@@ -313,6 +351,9 @@
 
         // Function to handle Scroll-based color change 
         function handleScroll() {
+            // Only run if the main container is visible (i.e., user has logged in)
+            if (!container.classList.contains('visible')) return; 
+
             const scrollPosition = window.scrollY;
             const body = document.body;
             
@@ -328,35 +369,13 @@
             }
         }
         
-
-        // Function to handle Search and Filter logic
-        function filterTable() {
-            const searchInput = document.getElementById('searchInput').value.toLowerCase();
-            const courseFilterValue = document.getElementById('courseFilter').value;
-
-            const filteredData = enrollmentData.filter(student => {
-                // 1. Check Course Filter
-                const courseMatch = courseFilterValue === "" || student.course === courseFilterValue;
-
-                // 2. Check Search Input
-                const searchMatch = 
-                    student.name.toLowerCase().includes(searchInput) ||
-                    student.course.toLowerCase().includes(searchInput);
-
-                return courseMatch && searchMatch;
-            });
-
-            renderTable(filteredData);
-        }
-        
-        // NEW: Debounced scroll handler (runs handleScroll function at most once every 50 milliseconds)
+        // Debounced scroll handler
         const debouncedScroll = debounce(handleScroll, 50);
 
         // Initialize the table and filter when the page loads
         document.addEventListener('DOMContentLoaded', () => {
             renderTable(enrollmentData);
             populateCourseFilter();
-            handleScroll(); 
         });
 
         // Attach the debounced scroll handler to the window scroll event
