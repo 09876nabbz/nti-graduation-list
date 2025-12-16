@@ -1,190 +1,208 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+/*
+ * NORTH WESTERN CHRISTIAN TRAINING INSTITUTE 
+ * Enrollment List Stylesheet (style.css)
+ */
 
-/* New Vibrant Styles */
+/* --- Base & Typography --- */
 body {
-    font-family: 'Poppins', sans-serif; 
+    font-family: Arial, sans-serif;
+    background-color: #e9e9e9;
     margin: 0;
     padding: 0;
-    background-color: #f3e5f5; /* Theme 1: Light Lavender (Default) */
-    transition: background-color 0.8s ease-in-out;
+    transition: background-color 0.5s ease;
+    color: #333;
 }
 
-/* NEW SCROLL COLOR THEMES */
-.color-theme-2 {
-    background-color: #e0f7fa; /* Light Cyan */
-}
-.color-theme-3 {
-    background-color: #fff3e0; /* Light Peach/Orange */
-}
-.color-theme-4 {
-    background-color: #e8f5e9; /* Light Mint Green */
-}
-/* END NEW SCROLL COLOR THEMES */
-
-/* Existing Container and Content Styles (Now visible by default) */
 .container {
-    width: 90%;
+    width: 95%;
     max-width: 1200px;
     margin: 20px auto;
+    padding: 20px;
     background-color: #ffffff;
-    padding: 25px;
-    box-shadow: 0 15px 30px rgba(74, 20, 140, 0.25); 
-    border-radius: 12px;
-    border: 2px solid #9c27b0; 
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
 }
 
-.logo-container {
-    text-align: center;
-    margin-bottom: 10px;
-}
-.logo {
-    max-width: 120px; 
-    height: auto;
-    display: block;
-    margin: 0 auto;
-}
-
-/* H1 PULSING GLOW ANIMATION */
 h1 {
     text-align: center;
-    color: #4a148c; /* Dark Purple */
+    color: #004d40; /* Dark Teal - Institution Primary Color */
     margin-bottom: 5px;
-    border-bottom: 4px solid #ce93d8; 
-    padding-bottom: 15px;
-    font-size: 2.5em;
-    font-weight: 700;
-    /* Apply the glow animation */
-    animation: text-glow 2s infinite alternate; 
+    font-size: 1.8em;
+    border-bottom: 2px solid #004d40;
+    padding-bottom: 10px;
 }
-
-@keyframes text-glow {
-    0% {
-        text-shadow: 0 0 5px #ce93d8;
-    }
-    100% {
-        text-shadow: 0 0 10px #8e24aa, 0 0 20px #ce93d8;
-    }
-}
-/* END H1 ANIMATION */
 
 h2 {
     text-align: center;
-    color: #8e24aa; 
-    font-size: 1.4em;
-    margin-top: 0;
-    margin-bottom: 30px;
+    color: #00796b; /* Medium Teal */
+    margin-top: 5px;
+    font-size: 1.2em;
+    font-weight: normal;
 }
+
+/* --- Logo Styling --- */
+.logo-container {
+    text-align: center;
+    padding: 10px 0;
+}
+
+.logo {
+    max-width: 120px;
+    height: auto;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Controls (Search & Filter) --- */
 .controls {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 25px;
+    align-items: center;
+    margin: 20px 0;
     gap: 15px;
 }
-.controls input, .controls select {
-    padding: 12px;
-    border: 2px solid #ce93d8;
-    border-radius: 8px;
-    font-size: 16px;
-    background-color: #f7f3f9;
-    transition: border-color 0.3s;
-}
-.controls input:focus, .controls select:focus {
-     border-color: #4a148c;
-}
-.controls input {
+
+#searchInput, #courseFilter {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
     flex-grow: 1;
+    max-width: 45%;
 }
-.controls select {
-    width: 250px; 
+
+/* Ensure the filter box doesn't get too small on desktop */
+#courseFilter {
+    max-width: 35%;
 }
-table {
+
+/* --- Table Styles --- */
+#enrollmentTable {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 25px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
 }
-th, td {
-    border: 1px solid #e1bee7; 
-    padding: 14px 18px;
-    text-align: left;
-}
-/* STICKY TABLE HEADER */
-th {
-    background-color: #4a148c; 
+
+#enrollmentTable thead th {
+    background-color: #004d40;
     color: white;
+    padding: 12px 15px;
+    text-align: left;
     font-weight: bold;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    position: sticky; 
-    top: 0; 
-    z-index: 10; 
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
+    letter-spacing: 0.05em;
 }
-/* END STICKY HEADER */
 
-tr:nth-child(even) {
-    background-color: #fce4ec; 
+#enrollmentTable tbody td {
+    padding: 10px 15px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
 }
-tr:hover {
-    background-color: #e1bee7; 
-    cursor: default;
+
+#enrollmentTable tbody tr:nth-child(even) {
+    background-color: #f5f5f5;
 }
-td:nth-child(1) {
+
+#enrollmentTable tbody tr:hover {
+    background-color: #e0f2f1; /* Light hover color */
+}
+
+/* Column Specific Widths */
+#enrollmentTable thead th:nth-child(1),
+#enrollmentTable tbody td:nth-child(1) {
+    width: 5%;
     text-align: center;
-    width: 50px;
-    font-weight: bold;
-    color: #4a148c;
 }
 
-/* Responsive Design */
+#enrollmentTable thead th:nth-child(2),
+#enrollmentTable tbody td:nth-child(2) {
+    width: 35%;
+}
+
+#enrollmentTable thead th:nth-child(3),
+#enrollmentTable tbody td:nth-child(3) {
+    width: 60%;
+}
+
+
+/* --- Scroll-Based Color Themes --- */
+.color-theme-2 {
+    background-color: #f1f8e9; /* Light Greenish-Gray */
+}
+
+.color-theme-3 {
+    background-color: #fffde7; /* Light Yellowish-Gray */
+}
+
+.color-theme-4 {
+    background-color: #fce4ec; /* Light Pinkish-Gray */
+}
+
+
+/* --- Responsive Design (Mobile First) --- */
+
 @media screen and (max-width: 768px) {
-    h1 {
-        font-size: 2em;
+    .container {
+        padding: 10px;
+        margin: 10px auto;
     }
+
+    h1 {
+        font-size: 1.4em;
+    }
+
+    h2 {
+        font-size: 1.0em;
+    }
+
     .controls {
         flex-direction: column;
+        gap: 10px;
     }
-    .controls input, .controls select {
+
+    #searchInput, #courseFilter {
+        max-width: 100%;
         width: 100%;
-        margin-bottom: 10px;
+        font-size: 0.9em;
     }
-    /* Mobile Card Layout (Better Responsiveness) */
-    table, thead, tbody, th, td, tr {
-        display: block;
+
+    /* Stack the table in mobile view */
+    #enrollmentTable, #enrollmentTable thead, #enrollmentTable tbody, #enrollmentTable th, #enrollmentTable td, #enrollmentTable tr { 
+        display: block; 
     }
-    thead tr {
+
+    /* Hide table headers (but not the data labels) */
+    #enrollmentTable thead tr { 
         position: absolute;
         top: -9999px;
         left: -9999px;
     }
-    tr {
-        border: 2px solid #9c27b0; 
-        margin-bottom: 20px;
-        border-radius: 8px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+
+    #enrollmentTable tr { 
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        background-color: #ffffff;
     }
-    td {
+
+    #enrollmentTable tbody td { 
         border: none;
-        border-bottom: 1px solid #e1bee7;
+        border-bottom: 1px solid #eee;
         position: relative;
-        padding-left: 55%; 
+        padding-left: 50%; 
         text-align: right;
     }
-    td:before {
+
+    /* Data label for pseudo-element */
+    #enrollmentTable td::before {
+        content: attr(data-label);
         position: absolute;
-        top: 50%;
         left: 10px;
         width: 45%;
         padding-right: 10px;
         white-space: nowrap;
-        content: attr(data-label);
-        font-weight: bold;
-        color: #8e24aa; 
-        transform: translateY(-50%);
         text-align: left;
-    }
-    td:nth-child(1) {
-        text-align: right;
-        padding-left: 55%;
+        font-weight: bold;
+        color: #004d40;
     }
 }
